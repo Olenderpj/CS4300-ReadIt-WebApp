@@ -1,0 +1,30 @@
+.body-content {
+    margin-top: 10px;
+
+    .content-header{
+        padding-bottom: 5px;
+        
+        #dropdown-menu{
+            float: left;
+            display: flex;
+            justify-content: start;
+        }
+    }
+}
+
+.filter-bar{
+    margin-bottom: 15px;
+}
+
+.label-filter{
+    padding-top: 8px;
+}
+
+#search{
+    max-width: 350px;
+}
+
+#add-a-book{
+    margin-left: auto;
+}
+

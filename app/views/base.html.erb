@@ -1,12 +1,65 @@
 <html>
     <head>
         <title><%= @page_title or "Page Title" %></title>
+
+        <!---- import stylesheet content here ----->
+        <%= stylesheet_link_tag 'base'%>
+
     </head>
 
-    <body class="container">
-        <!--- Render base content that every page should have ---->
-        <h1> Base HTML </h1>
-        <%= content_for(:main_content) ? yield(:main_content) :Yield %>
+    <body>
+        <div>
+            <!--- Render base content that every page should have ---->
+            <nav class="sticky-top" id="top-bar">
+                <div class="top-nav">
+                    
+                    <input id="search" class="form-control rounded" placeholder="Find Something New...">
+                    
+                    <a class="btn btn-primary search-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </a>
+                </div>
+            </nav>
+            
+<div class="wrapper">       
+        <!------- Navigation Side Bar ------->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3> Read-It Personal Bookshelf </h3>
+            </div>
+        <hr>
+            <ul class="reading-menu">
+                <h5>Main Menu</h5>
+                <li><a href=""> Discover</a></li>
+                <li><a href=""> Reading Challenges </a></li>
+            </ul>
+        <hr>
+            <ul class="sub-menu">
+            <h5>My Menu (WIP LOGIN)</h5>
+                <li><a href=""> Books I Want to Read</a></li>
+                <li><a href=""> Books I've already Read</a></li>
+            </ul>
+        <hr>
+        <ul class="account-menu">
+            <h5>Account</h5>
+                <li><a href="/users/sign_in"> Account Settings </a></li>
+                <li><a href="/users/sign_in"> Login </a></li>
+                <li><a href="/users/sign_up"> Register </a></li>
+                <li><a href=""> logout</a></li>
+            </ul>
+        </nav>
+
+        <!------- Page Content ------->
+        <div id="content">
+
+        
+            <!--- Render base content that every page should have ---->
+            <%= content_for(:main_content) ? yield(:main_content) : Yield %>
+        </div>
+    </div>
+
     </body>
 
 </html>

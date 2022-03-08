@@ -2,7 +2,8 @@
     <head>
     <title><%= @page_title or "Page Title" %></title>
 
-    <! import stylesheet content here>
+    <!---- import stylesheet content here----->
+    <%= stylesheet_link_tag 'index'%>
 
     </head>
 
@@ -10,9 +11,43 @@
         
         <!--- Render content using the base index---->
         <% content_for :main_content do %>
-            <h3> I'm from the index </h3>
-            <a class='btn btn-primary'> Button </a>
-        
+
+        <div class="d-flex filter-bar">
+            <div class="label-filter">
+            <label for="cars">(WIP) Filter By:</label>
+                <select name="cars" id="cars">
+                    <option value="alphabetical">A-Z</option>
+                    <option value="highest-rated">Highest Rated</option>
+                    <option value="author">Author</option>
+                    <option value="release-date">Release Date</option>
+                </select>
+            </div>
+
+            <a id="add-a-book" class="justify-content-end btn btn-primary" href=''>Add a Book</a>
+        </div>
+            
+            <!--- Generated list of Example Books ------->
+            <table>
+            <% for i in 0..9 do%>
+                <tr>
+                <% for i in 0..4 do%>
+                <td>
+                    <div class="card" style="width: 18rem;">
+                    <img src="https://media.wired.com/photos/5be4cd03db23f3775e466767/master/pass/books-521812297.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Example Book</h5>
+                        <p class="card-text">Some quick example text to be replaced with a book summary later on.</p>
+                        <a href="/show" class="btn btn-primary">Read More</a>
+                        <a href="" class="btn btn-warning">Buy on Amazon</a>
+                    </div>
+                    </div>
+                </td>
+                <% end %>
+                
+                </tr>
+            <% end %>
+            </table>
+
         <% end %>
         
         <%= render template: "base" %>
