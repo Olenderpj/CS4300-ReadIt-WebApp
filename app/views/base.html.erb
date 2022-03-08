@@ -1,0 +1,12 @@
+<html>
+    <head>
+        <title><%= @page_title or "Page Title" %></title>
+    </head>
+
+    <body class="container">
+        <!--- Render base content that every page should have ---->
+        <h1> Base HTML </h1>
+        <%= content_for(:main_content) ? yield(:main_content) :Yield %>
+    </body>
+
+</html>

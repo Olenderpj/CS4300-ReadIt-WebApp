@@ -1,8 +1,20 @@
-<head>
-<title>Read-it</title>
-</head>
+<html>
+    <head>
+    <title><%= @page_title or "Page Title" %></title>
 
-<body>
-    <h1> The migration for this web page is currently in progress... Please wait</h1>
+    <! import stylesheet content here>
 
-</body>
+    </head>
+
+    <body>
+        
+        <!--- Render content using the base index---->
+        <% content_for :main_content do %>
+            <h3> I'm from the index </h3>
+            <a class='btn btn-primary'> Button </a>
+        
+        <% end %>
+        
+        <%= render template: "base" %>
+    </body>
+</html>
