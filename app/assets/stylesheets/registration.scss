@@ -1,0 +1,44 @@
+body {
+    height: 100%;
+}
+
+.container{
+    height: 100%;
+    display: flex;
+    margin-top: 30vh;
+    justify-content: center;
+    align-items: center;
+
+    .card {
+        max-width: 750px;
+        max-height: 500px;
+    }
+
+    .card-title{
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    .password{
+        margin-top:10px;
+        margin-bottom:10px;
+    }
+
+    #home, #register{
+        margin-left:auto;
+
+    }
+}
+
+.name{
+    margin-top: 30px;
+}
+
+#first-option{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#login-image{
+    min-height: 300px;
+}
