@@ -1,4 +1,4 @@
-  Given(/^I am on the Read-it home page$/) do
+  Given(/^I am on the home page$/) do
     visit root_path
   end
   
@@ -15,9 +15,7 @@
     expect(page).to have_content("Book Description")
 
     # Input fields
-    expect(page).to have_field("book_name")
+    expect(page).to have_field("book_title")
     expect(page).to have_field("book_descriptions")
 
-    # Default field values
-    page.find(:xpath, "//input[@id='read_list_flag']")['checked']
   end
