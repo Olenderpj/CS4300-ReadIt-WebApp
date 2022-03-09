@@ -9,7 +9,7 @@ Feature: Create ordered book list
   Background: books have been added to database
 
     Given the following books exist:
-    | Title                       | Author          | Genre           | 
+    | title                       | author          | genre           | 
     | The Da Vinci Code           | Dan Brown       | Thriller        |
     | Foundation                  | Isaac Asimov    | Science Fiction |
     | The Lost Symbol             | Dan Brown       | Thriller        | 
