@@ -24,7 +24,7 @@ Feature: Create ordered book list
 
     # And I press "filter"
 
-    Then I should see the following books order: The Da Vinci Code, The Lost Symbol, Angels & Demons, Dune, Foundation
+    Then I should see the following books order: Dan Brown, Dan Brown, Dan Brown, Frank Herbert, Isaac Asimov 
 
   Scenario: restrict to option 'genre'
 
@@ -32,4 +32,4 @@ Feature: Create ordered book list
 
     # And I press "filter"
 
-    Then I should see the following books order: Foundation, Dune, The Da Vinci Code, The Lost Symbol, Angels & Demons  
+    Then I should see the following books order: Science Fiction, Science Fiction, Thriller, Thriller, Thriller  
