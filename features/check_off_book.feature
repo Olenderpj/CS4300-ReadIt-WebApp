@@ -1,7 +1,7 @@
 Feature: Checking Off Books
     As a user
-    I want to
-    So that
+    So that I can track what books I have read
+    I want to check off completed books
 
 Scenario: The user checks off a read book
     Given: The user is on the home page

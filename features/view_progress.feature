@@ -16,8 +16,8 @@ Scenario: The user has no read books
 Scenario: The user selects a book in their history
     Given: The user is on the history page
     When: The user has 1 or more read books
-    And: The user wants to view details on a book
-    Then: They should be able to view details of book
+    And: The read more button is pushed
+    Then: The user should be able to view details of book
 
 Scenario: The user should see books sorted by when they were read
     Given: The user is on the history page
