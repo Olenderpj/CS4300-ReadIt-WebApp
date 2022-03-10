@@ -1,7 +1,7 @@
 Feature: Viewing reading progress and history
     As a user
-    I want to
-    So that I
+    So that I can know what books I have completed
+    I want to see my reading history and progress with details
 
 Scenario: The user views their reading history
     Given: The user is on the history page
