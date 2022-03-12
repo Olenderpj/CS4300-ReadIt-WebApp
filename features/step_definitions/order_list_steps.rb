@@ -12,14 +12,18 @@ Given('I am on the Read-it home page') do
   visit root_path
 end
 
-When('I select the option {string}') do |string|
+When('I select the option author')
+  select 'author', from: 'cars' # Code here that turns the phrase above into concrete actions
+end
+
+Then('I should see the following books author order: Dan Brown, Dan Brown, Dan Brown, Frank Herbert, Isaac Asimov') do
   pending # Code here that turns the phrase above into concrete actions
 end
 
-Then('I should see the following books order: Dan Brown, Dan Brown, Dan Brown, Frank Herbert, Isaac Asimov') do
-  pending # Code here that turns the phrase above into concrete actions
+When('I select the option genre')
+  select 'genre', from: 'cars' # Code here that turns the phrase above into concrete actions
 end
 
-Then('I should see the following books order: Science Fiction, Science Fiction, Thriller, Thriller, Thriller') do
+Then('I should see the following books genre order: Science Fiction, Science Fiction, Thriller, Thriller, Thriller') do
   pending # Code here that turns the phrase above into concrete actions
 end

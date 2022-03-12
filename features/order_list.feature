@@ -24,7 +24,7 @@ Feature: Create ordered book list
 
     # And I press "filter"
 
-    Then I should see the following books order: Dan Brown, Dan Brown, Dan Brown, Frank Herbert, Isaac Asimov 
+    Then I should see the following books author order: Dan Brown, Dan Brown, Dan Brown, Frank Herbert, Isaac Asimov 
 
   Scenario: restrict to option 'genre'
 
@@ -32,4 +32,4 @@ Feature: Create ordered book list
 
     # And I press "filter"
 
-    Then I should see the following books order: Science Fiction, Science Fiction, Thriller, Thriller, Thriller  
+    Then I should see the following books genre order: Science Fiction, Science Fiction, Thriller, Thriller, Thriller  
