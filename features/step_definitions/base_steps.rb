@@ -17,3 +17,10 @@ end
 
 #---------------------------------------------
 
+When(/^the user clicks on the Account settings button$/) do
+    visit '/users/edit'
+end
+
+Then (/^the user will be re-directed to the account settings page$/) do
+    expect(page).to have_content "Edit User"
+end
