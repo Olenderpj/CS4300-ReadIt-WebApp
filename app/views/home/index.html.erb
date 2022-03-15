@@ -13,40 +13,16 @@
         <% content_for :main_content do %>
 
         <div class="d-flex filter-bar">
-            <div class="label-filter">
-            <label for="cars">(WIP) Filter By:</label>
-                <select name="cars" id="cars">
-                    <option value="alphabetical">A-Z</option>
-                    <option value="highest-rated">Highest Rated</option>
-                    <option value="author">Author</option>
-                    <option value="release-date">Release Date</option>
-                </select>
-            </div>
-
             <a id="add-a-book" class="justify-content-end btn btn-primary" href='/book/new'>Add a Book</a>
         </div>
+        <%= form_tag("/", method: "get") do %>
+            <%= label_tag(:q, "(WIP Minhaj)Filter By:") %>
+            <%= select_tag "option_id", options_for_select([["Author",1], ["Genre",2]]) %>
+
+            <%= submit_tag("Filter") %>
+          <% end %>
             
-            <!--- Generated list of Example Books ------->
-            <table>
-            <% for i in 0..9 do%>
-                <tr>
-                <% for i in 0..4 do%>
-                <td>
-                    <div class="card" style="width: 18rem;">
-                    <img src="https://media.wired.com/photos/5be4cd03db23f3775e466767/master/pass/books-521812297.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Example Book</h5>
-                        <p class="card-text">Some quick example text to be replaced with a book summary later on.</p>
-                        <a href="/show" class="btn btn-primary">Read More</a>
-                        <a href="" class="btn btn-warning">Buy on Amazon</a>
-                    </div>
-                    </div>
-                </td>
-                <% end %>
-                
-                </tr>
-            <% end %>
-            </table>
+        <%= render 'book/bookview' %> 
 
         <% end %>
         
