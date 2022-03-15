@@ -18,9 +18,9 @@ Feature: Create ordered book list
 
     And  I am on the Read-it home page
 
-  Scenario: restrict to option author 
+  Scenario: restrict to option 'author' 
 
-    When I select the option 'author'
+    When I select the option author
 
     # And I press "filter"
 
@@ -28,7 +28,7 @@ Feature: Create ordered book list
 
   Scenario: restrict to option 'genre'
 
-    When I select the option 'genre'
+    When I select the option genre
 
     # And I press "filter"
 
