@@ -10,16 +10,17 @@
     <body>
         
         <!--- Render content using the base index---->
-        <% content_for :main_content do %>
+        <% content_for :main_content do %>   
             
-        <%= month_calendar do |date| %>
-            <%= date %>
-          <% end %>  
+            <%= month_calendar do |date| %>
+                <%= date %>
+              <% end %> 
 
         <% end %>
         
         <%= render template: "base" %>
     </body>
 </html>
+
 
 
