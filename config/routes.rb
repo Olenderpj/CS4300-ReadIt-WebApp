@@ -9,6 +9,9 @@ Rails.application.routes.draw do
    patch 'book/update'
    get 'book/show'
 
+   #calendar routes
+   get '/calendar' => 'calendar#index'
+
    # get 'book/list'
    # get 'book/delete'
    # get 'book/update'

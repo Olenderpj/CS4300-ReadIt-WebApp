@@ -1,0 +1,25 @@
+<html>
+    <head>
+    <title><%= @page_title or "Page Title" %></title>
+
+    <!---- import stylesheet content here----->
+    <%= stylesheet_link_tag 'index'%>
+
+    </head>
+
+    <body>
+        
+        <!--- Render content using the base index---->
+        <% content_for :main_content do %>
+            
+        <%= month_calendar do |date| %>
+            <%= date %>
+          <% end %>  
+
+        <% end %>
+        
+        <%= render template: "base" %>
+    </body>
+</html>
+
+
