@@ -11,6 +11,7 @@
       background-color: rgba(0, 0, 0, 0);
       border: 1px solid rgb(221, 221, 221);
       border-collapse: collapse;
+      border-radius: 25px;
       box-sizing: border-box;
       max-width: 100%;
       width: 100%;
@@ -18,10 +19,12 @@
   
     tr {
       border-collapse: collapse;
+
     }
   
     th {
       padding: 6px;
+      border-radius: 25px;
       border-bottom: 2px solid rgb(221, 221, 221);
       border-collapse: collapse;
       border-left: 1px solid rgb(221, 221, 221);
@@ -40,7 +43,7 @@
       border-top-color: rgb(221, 221, 221);
       border-top-style: solid;
       border-top-width: 1px;
-      border-right-color: rgb(221, 221, 221);
+      border-right-color: rgb(211, 221, 221);
       border-right-style: solid;
       border-right-width: 1px;
       border-bottom-color: rgb(221, 221, 221);
@@ -70,10 +73,10 @@
     .past {}
     .future {}
   
-    .start-date {Date.new(Date.today.year, month_number)}
+    .start-date {}
   
     .prev-month {
-      background: #DDD;
+      background: rgb(221, 221, 221);
     }
     .next-month {
       background: #DDD;

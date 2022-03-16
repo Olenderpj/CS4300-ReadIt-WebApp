@@ -3,24 +3,27 @@
     <title><%= @page_title or "Page Title" %></title>
 
     <!---- import stylesheet content here----->
-    <%= stylesheet_link_tag 'index'%>
+    <%= stylesheet_link_tag 'calendar'%>
 
     </head>
 
     <body>
         
         <!--- Render content using the base index---->
-        <% content_for :main_content do %>   
+        <% content_for :main_content do %>
             
             <%= month_calendar do |date| %>
-                <%= date %>
-              <% end %> 
+                <%= date%>
+             <% end %>  
+
+            <button onclick="location.href= 'meetings/new'" type="button">
+                 Create New Event
+             </button>
 
         <% end %>
         
         <%= render template: "base" %>
     </body>
 </html>
-
 
 
