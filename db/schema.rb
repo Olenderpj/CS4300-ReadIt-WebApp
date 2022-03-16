@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2022_03_15_202937) do
 
   create_table "books", force: :cascade do |t|
@@ -18,10 +19,10 @@ ActiveRecord::Schema.define(version: 2022_03_15_202937) do
     t.string "description"
     t.boolean "isInReadingList"
     t.boolean "isInPersonalLibraryList"
-    t.string "isRead"
-    t.string "boolean"
+    t.boolean "isRead"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "genre"
   end
 
   create_table "meetings", force: :cascade do |t|

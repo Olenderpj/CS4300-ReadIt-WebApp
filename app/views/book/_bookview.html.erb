@@ -1,0 +1,33 @@
+<!--- Generated list of Example Books ------->
+            <table>
+            <% count = 0 %>
+            <% for i in 1..(@counts/5)+1 do%>
+                <% if count == @counts %>
+                <% break %>
+                <% end %>
+                <tr>
+                <% for i in 1..5 do%>
+                <% if count == @counts %>
+                <% break %>
+                <% end %>
+                <td>
+                    <div class="card" style="width: 18rem;">
+                    <img src="https://media.wired.com/photos/5be4cd03db23f3775e466767/master/pass/books-521812297.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= @books[count][:title] %></h5>
+                        <p class="card-author"><%= @books[count][:author] %></p>
+                        <p class="card-description"><%= @books[count][:description] %></p>
+                        <p class="card-genre"><%= @books[count][:genre] %></p>
+                        <a href="/show" class="btn btn-primary">Read More</a>
+                        <a href="" class="btn btn-warning">Buy on Amazon</a>
+                        <% count = count +1 %>
+                    </div>
+                    </div>
+                </td>
+                <% end %>
+                
+                </tr>
+            <% end %>
+            </table>
+
+       
