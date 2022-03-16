@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :meetings
   devise_for :users
   root to: "home#index"
 
@@ -8,6 +9,9 @@ Rails.application.routes.draw do
    get 'book/edit'
    patch 'book/update'
    get 'book/show'
+
+   #calendar routes
+   get '/calendar' => 'calendar#index'
 
    # get 'book/list'
    # get 'book/delete'

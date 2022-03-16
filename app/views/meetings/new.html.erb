@@ -1,0 +1,6 @@
+<% content_for :main_content do %>
+    <h1>New Event</h1>
+    <%= render 'form', meeting: @meeting %>
+<% end %>
+<%= render template: "base" %>
+<%= link_to 'Back', meetings_path %>
