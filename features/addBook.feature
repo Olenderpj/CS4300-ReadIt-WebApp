@@ -30,19 +30,22 @@ Scenario: Add book to to-read-list
   When I click on isInReadingList
   Then the isInReadingList field is set to checked
 
+@addBook
 Scenario: Set book type to Personal Library Book
   Given I am on the new book page
-  When I click on the personal_library_flag 
-  Then the personal_library_flag field is set to checked
+  When I click on isInPersonalLibraryList 
+  Then the isInPersonalLibraryList field is set to checked
 
+@addBook
 Scenario: Create a book
   Given I am on the new book page
   When I fill in the title field with "Hidden Figures"
   And I click on the Create button
-  Then I should be on the home page
+  Then I should go from new book page to home page
   And I should see content "Hidden Figures"
 
+@addBook
 Scenario: Cancel a new book
-  Given I am on the Book page
+  Given I am on the new book page
   When I click on the Back to Home button
-  Then I should be on the home page  
+  Then I should go from new book page to home page
