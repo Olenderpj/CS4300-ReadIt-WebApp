@@ -8,20 +8,21 @@ Scenario: Display book page
   Given I am on the home page
   When I click on Add a Book
   Then I should be on the new book page
+  And I should see book labels
+  And I should see book fields
 
-@addBook
-Scenario: Display book page labels and fields
-  Given I am on the new book page
-  Then page should have Title label
-  And page should have title field
-  And page should have Author label
-  And page should have author field
-  And page should have Description label
-  And page should have description field
-  And page should have To Read List label
-  And page should have to_read_list_flag checkbox
-  And page should have Personal Library label
-  And page should have personal_library_flag checkbox
+#@addBook
+#Scenario: Display book page labels and fields BETTER
+#  Given I have clicked on the Add a Book button
+#  When I am on the new book page
+#  Then I should see the following labels
+#  | Title       |
+#  | Author      | 
+#  | Description |
+#  And I should see the following fields 
+#  | title       |
+#  | author      |
+#  | description |
 
 @addBook
 Scenario: Add book to to-read-list
@@ -29,19 +30,22 @@ Scenario: Add book to to-read-list
   When I click on isInReadingList
   Then the isInReadingList field is set to checked
 
+@addBook
 Scenario: Set book type to Personal Library Book
   Given I am on the new book page
-  When I click on the personal_library_flag 
-  Then the personal_library_flag field is set to checked
+  When I click on isInPersonalLibraryList 
+  Then the isInPersonalLibraryList field is set to checked
 
+@addBook
 Scenario: Create a book
   Given I am on the new book page
   When I fill in the title field with "Hidden Figures"
   And I click on the Create button
-  Then I should be on the home page
+  Then I should go from new book page to home page
   And I should see content "Hidden Figures"
 
+@addBook
 Scenario: Cancel a new book
-  Given I am on the Book page
+  Given I am on the new book page
   When I click on the Back to Home button
-  Then I should be on the home page  
+  Then I should go from new book page to home page

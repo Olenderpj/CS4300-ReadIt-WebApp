@@ -18,7 +18,8 @@ ActiveRecord::Schema.define(version: 2022_03_15_202937) do
     t.string "description"
     t.boolean "isInReadingList"
     t.boolean "isInPersonalLibraryList"
-    t.boolean "isRead"
+    t.string "isRead"
+    t.string "boolean"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "genre"
