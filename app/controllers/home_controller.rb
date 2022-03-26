@@ -15,4 +15,35 @@ class HomeController < ApplicationController
       end
     end
   end
+
+  def search
+    @tags = []
+    params[:searchtag].split.each do |s|
+      @tags << Tag.find_by_name(s.downcase)
+    end
+    if params[:searchtag].present? and !(@tags.empty?)
+      
+      @books = []
+
+      @tags.each do |t|
+        for i in 0..(t.books.length-1)
+          if !(@books.include? t.books[i])
+            @books<<t.books[i]
+          end
+        end
+      end
+
+      #@tags = Tag.find_by_name(params[:searchtag])
+      #@books = @tags.books
+      @counts = @books.length
+      session[:searchtag] = params[:searchtag]
+      #@istag = 1
+    else
+      @books = Book.all
+      @counts = Book.count
+    end
+    render 'home/index'
+  end
+
+  
 end

@@ -17,13 +17,23 @@
     </p>
 
     <p>
-        <label for = "isInReadingList">Is in Reading List</label>:
-        <%= check_box 'books', 'isInReadingList', id: "isInReadingList" %>
+        <label for = "genre">Genre</label>:
+        <%= text_field 'books', 'genre', id: "genre" %>
+    </p>
+
+    <p>
+        <label for = "tag_names">Tags</label>:
+        <%= text_field 'books', 'tag_names', id: "tags"  %>
     </p>
 
     <p>
         <label for = "isInPersonalLibraryList">Is in Reading List</label>:
         <%= check_box 'books', 'isInPersonalLibraryList', id: "isInPersonalLibraryList" %>
+    </p>
+
+    <p>
+    <label for = "isInPersonalLibraryList">Is in Reading List</label>:
+    <%= check_box 'books', 'isInPersonalLibraryList', id: "isInPersonalLibraryList" %>
     </p>
 
     <%= submit_tag "Create", id: "Create" %>
