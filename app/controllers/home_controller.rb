@@ -21,7 +21,7 @@ class HomeController < ApplicationController
     params[:searchtag].split.each do |s|
       @tags << Tag.find_by_name(s.downcase)
     end
-    if params[:searchtag].present? and !(@tags.empty?)
+    if params[:searchtag].present? and !(@tags.all? {|x| x.nil?})
       
       @books = []
 

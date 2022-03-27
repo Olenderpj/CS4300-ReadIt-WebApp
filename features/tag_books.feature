@@ -6,7 +6,7 @@ Feature: Applying user tags to listed books
 
 Background: books have been added to database
 
-    Given the following books exist:
+    Given the following books are in database:
     | title                         | author            | genre    |  tag_names        |
     | The Lord of the Rings         | J. R. R. Tolkien  | Fiction  |  Fiction Fantasy  |
     | Ocean 2                       | R.R Afnan         | Fantasy  |  Fantasy          |
@@ -18,20 +18,17 @@ Background: books have been added to database
 
 Scenario: Filter with one tag
 
-    When I fill the Tags box with tag 'Fiction'
-    And press Search Tags
+    When I fill the Tags box with single tag Fiction and press Search Tags
     Then I should see the following books: The Lord of the Rings, Nigma Machine
 
 
 Scenario: Filter with multiple tags
 
-    When I fill the Tags box with tag 'Fiction Fantasy'
-    And press Search Tags
-    Then I should see the following books: The Lord of the Rings, Ocean 2, Nigma Machine
+    When I fill the Tags box with multiple tag Fiction Fantasy and press Search Tags
+    Then I should see the following books: The Lord of the Rings, Nigma Machine, Ocean 2
 
 
 Scenario: Filter with tags not present in the database
 
-    When I fill the Tags box with tag 'Science'
-    And press Search Tags
+    When I fill the Tags box with tag Science not present and press Search Tags
     Then  as this tag is not present in the database I should see all the books : The Lord of the Rings, Ocean 2, Nigma Machine, The Silent Patient, The Family Across the Street
