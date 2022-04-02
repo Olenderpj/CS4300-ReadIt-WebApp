@@ -12,7 +12,7 @@ class BookController < ApplicationController
   end
 
   def books_params
-    params.require(:books).permit(:title, :description, :author, :isInReadingList)
+    params.require(:books).permit(:title, :description, :author, :isInReadingList,:genre, :tag_names)
   end
     
   def create
@@ -45,6 +45,14 @@ class BookController < ApplicationController
     
   def show
     @book = Book.find(params[:id])
+  end
+
+  def search
+    if params[:search].present?
+      @books = @books.search(params[:search])
+    else
+      @books = @books
+    end
   end
   
 end

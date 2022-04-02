@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   resources :meetings
+  resources :books do
+    collection do
+      get :search
+    end
+  end
   devise_for :users
   root to: "home#index"
+
+  get 'home/search'
 
   # book routes
    get 'book/new'
