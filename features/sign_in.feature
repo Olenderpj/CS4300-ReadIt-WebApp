@@ -9,7 +9,7 @@ Scenario: The user wants to login
 Scenario: The user submits the login form with VALID credentials
     When The user successfully signs in with valid credentials,
     Then The user should be directed to the home page
-    And the user should see a welcome message of "Hello, _____"
+    And the user should see a welcome message of "Manage My Account"
 
 Scenario: The user submits the login form with INVALID credentials
     When The user enters their invlaid credentials
