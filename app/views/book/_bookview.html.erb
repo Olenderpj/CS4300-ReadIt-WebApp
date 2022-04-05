@@ -19,7 +19,7 @@
                         <p class="card-description"><%= @books[count][:description] %></p>
                         <p class="card-genre"><%= @books[count][:genre] %></p>
                         <a href="/show" class="btn btn-primary">Read More</a>
-                        <a href="/edit" class="btn btn-primary", id="edit-book">Edit Book</a>
+                        <a href="/book/<%= @books[count][:id] %>/edit" class="btn btn-primary", id="edit-book">Edit Book</a>
                         <a href="" class="btn btn-warning">Buy on Amazon</a>
                         <% count = count +1 %>
                     </div>
