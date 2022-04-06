@@ -1,26 +1,49 @@
-<h2>Log in</h2>
+<head>
+  <!---- import stylesheet content here ----->
+  <%= stylesheet_link_tag 'registration'%>
+</head>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+  <div class="container">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img id="login-image" src="https://media.wired.com/photos/5be4cd03db23f3775e466767/master/pass/books-521812297.jpg" class="img-fluid rounded" alt="Placeholder Image">
+        </div>
+        
+        <div class="col-md-8">
+        <h3 class="card-title">Sign In</h3>
+          <div class="card-body">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class="field">
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"Email Address" %>
+                </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+                <div class="field">
+                  <%= f.label :password %><br />
+                  <%= f.password_field :password, autocomplete: "current-password", class:"form-control", placeholder:"Password"%>
+                </div>
+
+                <div class="sign-in-options">
+                  <div id="first-option" class="d-flex sign-in">
+                  <% if devise_mapping.rememberable? %>
+                  <div class="field">
+                    <%= f.check_box :remember_me %>
+                    <%= f.label :remember_me %>
+                  </div>
+                <% end %>
+                        <a id="register" class="justify-content-end" href="/users/password/edit"> Forgot Password? </a>
+                  </div>
+                  
+                  <div class="d-flex sign-in">
+                    <%= f.submit "Log in", :class => "btn btn-primary"%>
+                    <a id="home" class="justify-content-end btn btn-secondary" href='/'>Home</a>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
