@@ -1,29 +1,34 @@
 <h1>Edit Book<h1>
 
-<%= form_tag :action => 'update' do %>
+<%= form_for @book, :url =>{:action => "update", :id => @book} do |b| %>
     <p>
         <label for = "title">Title</label>: 
-        <%= text_field 'books', 'title', id: "title" %>
+        <%= b.text_field 'title', id: "title" %>
     </p>
 
     <p>
         <label for = "author">Author</label>: 
-        <%= text_field 'books', 'author', id: "author" %>
+        <%= b.text_field 'author', id: "author" %>
     </p>
 
     <p>
         <label for = "description">Description</label>:
-        <%= text_field 'books', 'description', id: "description" %>
+        <%= b.text_field 'description', id: "description" %>
+    </p>
+
+    <p>
+        <label for = "genre">Genre</label>:
+        <%= b.text_field 'genre', id: "genre" %>
     </p>
 
     <p>
         <label for = "isInReadingList">Is in Reading List</label>:
-        <%= check_box 'books', 'isInReadingList', id: "isInReadingList" %>
+        <%= b.check_box 'isInReadingList', id: "isInReadingList" %>
     </p>
 
     <p>
-        <label for = "isInPersonalLibraryList">Is in Reading List</label>:
-        <%= check_box 'books', 'isInPersonalLibraryList', id: "isInPersonalLibraryList" %>
+    <label for = "isInPersonalLibraryList">Is in Personal Library List</label>:
+    <%= b.check_box 'isInPersonalLibraryList', id: "isInPersonalLibraryList" %>
     </p>
 
     <%= submit_tag "Update", id: "Update" %>

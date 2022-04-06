@@ -12,12 +12,12 @@ class BookController < ApplicationController
   end
 
   def books_params
-    params.require(:books).permit(:title, :description, :author, :isInReadingList,:genre, :tag_names)
+    params.require(:books).permit(:title, :description, :author, :isInReadingList, :isInPersonalLibraryList, :genre, :tag_names)
   end
     
   def create
     @book = Book.new(books_params)
-    
+    puts("DEBUG: in book create")
     if @book.save 
       redirect_to '/'
     else
@@ -27,17 +27,19 @@ class BookController < ApplicationController
     
   def edit
     @book = Book.find(params[:id])
+    puts("DEBUG: in book edit")
   end
     
-  def books_param
-    params.require(:books).permit(:title, :description, :author, :isInReadingList)
-  end
+  def book_param
+    params.require(:book).permit(:title, :author, :description, :genre, :isInReadingList, :isInPersonalLibraryList)
+ end
     
   def update
     @book = Book.find(params[:id])
-  
+    puts("DEBUG: in book update")
     if @book.update_attributes(book_param)
-      redirect_to :action => 'show', :id => @book 
+      #redirect_to :action => 'show', :id => @book 
+      redirect_to '/'
     else
       render.html :action => 'edit'
     end
