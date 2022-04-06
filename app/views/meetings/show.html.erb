@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
+<% content_for :main_content do %>
+  <p>
+    <strong>Name:</strong>
+    <%= @meeting.name %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @meeting.name %>
-</p>
+  <p>
+    <strong>Start time:</strong>
+    <%= @meeting.start_time %>
+  </p>
 
-<p>
-  <strong>Start time:</strong>
-  <%= @meeting.start_time %>
-</p>
-
-<%= link_to 'Edit', edit_meeting_path(@meeting) %> |
-<%= link_to 'Back', meetings_path %>
+  <%= link_to 'Edit', edit_meeting_path(@meeting) %> |
+  <%= link_to 'Back', '/calendar' %>
+<% end %>
+<%= render template: "base" %>

@@ -15,6 +15,14 @@ Rails.application.routes.draw do
   
    #calendar routes
    get '/calendar' => 'calendar#index'
+
+
+   get '/show' => 'meeting#show'
+
+   # get 'book/list'
+   # get 'book/delete'
+   # get 'book/update'
+
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
