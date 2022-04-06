@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_03_25_035449) do
-=======
-ActiveRecord::Schema.define(version: 2022_04_05_154213) do
->>>>>>> caef58cf4df2d06daa5f6e28be50d4a101c51c9b
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -55,11 +51,6 @@ ActiveRecord::Schema.define(version: 2022_04_05_154213) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "sign_in_count"
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
