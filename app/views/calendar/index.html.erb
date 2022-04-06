@@ -12,11 +12,19 @@
         <!--- Render content using the base index---->
         <% content_for :main_content do %>
             
-            <%= month_calendar do |date| %>
-                <%= date%>
-             <% end %>  
+            <%= month_calendar events: @meetings do |date, meetings| %>
+                <%= date %>
+              
+                <% meetings.each do |meeting| %>
+                  <div> 
+                    <a href =  > <%= meeting.name %></a>
+                    <%= link_to 'Show', meeting %>
+                    <%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </div>
+                <% end %>
+              <% end %>
 
-            <button onclick="location.href= 'meetings/new'" type="button">
+            <button id="Create New Event" onclick="location.href= 'meetings/new'" type="button">
                  Create New Event
              </button>
 
