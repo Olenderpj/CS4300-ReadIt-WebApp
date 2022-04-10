@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_25_035449) do
+ActiveRecord::Schema.define(version: 2022_04_10_210106) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -18,11 +18,12 @@ ActiveRecord::Schema.define(version: 2022_03_25_035449) do
     t.string "description"
     t.boolean "isInReadingList"
     t.boolean "isInPersonalLibraryList"
-    t.string "isRead"
-    t.string "boolean"
+    t.boolean "isRead"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "genre"
+    t.integer "totalPage"
+    t.integer "readPage", default: 0
   end
 
   create_table "books_tags", id: false, force: :cascade do |t|
