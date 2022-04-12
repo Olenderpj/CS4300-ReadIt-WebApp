@@ -20,6 +20,18 @@
         <label for = "genre">Genre</label>:
         <%= text_field 'books', 'genre', id: "genre" %>
     </p>
+    
+    
+    <p>
+    <label for = "totalPage">Total Page</label>:
+    <%= number_field 'books', 'totalPage', id:"toatalPage", value:0 %>
+    </p>
+
+    <p>
+    <label for = "readPage">Page Read</label>:
+    <%= number_field 'books', 'readPage', id:"readPage", value:0 %>
+    </p>
+    
 
     <p>
         <label for = "tag_names">Tags</label>:

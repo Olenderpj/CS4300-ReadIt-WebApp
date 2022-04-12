@@ -22,6 +22,16 @@
     </p>
 
     <p>
+        <label for = "totalPage">Total Page</label>:
+        <%= b.number_field 'totalPage', id: "totalPage" %>
+    </p>
+
+    <p>
+        <label for = "readPage">Page Read</label>:
+        <%= b.number_field 'readPage', id: "readPage" %>
+    </p>
+    
+    <p>
         <label for = "isInReadingList">Is in Reading List</label>:
         <%= b.check_box 'isInReadingList', id: "isInReadingList" %>
     </p>

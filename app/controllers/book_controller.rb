@@ -12,7 +12,7 @@ class BookController < ApplicationController
   end
 
   def books_params
-    params.require(:books).permit(:title, :description, :author, :isInReadingList, :isInPersonalLibraryList, :genre, :tag_names)
+    params.require(:books).permit(:title, :description, :author, :isInReadingList, :isInPersonalLibraryList, :genre, :tag_names, :totalPage, :readPage)
   end
     
   def create
@@ -31,7 +31,7 @@ class BookController < ApplicationController
   end
     
   def book_param
-    params.require(:book).permit(:title, :author, :description, :genre, :isInReadingList, :isInPersonalLibraryList)
+    params.require(:book).permit(:title, :description, :author, :isInReadingList, :isInPersonalLibraryList, :genre, :tag_names, :totalPage, :readPage)
  end
     
   def update
