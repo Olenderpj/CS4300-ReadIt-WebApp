@@ -3,6 +3,7 @@ class HomeController < ApplicationController
     @books = Book.all
     @counts = Book.count
     @order_option = Book.order_options
+    
 
     if (params[:commit] == 'Filter')
       case params[:option_id]

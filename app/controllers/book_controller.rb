@@ -10,6 +10,10 @@ class BookController < ApplicationController
     @book = Book.new
     @isInReadingList = true # default to true for the quickest entry of a book
   end
+
+  def books_params
+    params.require(:books).permit(:title, :description, :author, :isInReadingList, :isInPersonalLibraryList, :genre, :tag_names, :totalPage, :readPage)
+  end
     
   def create
     @book = Book.new(books_params)
@@ -20,16 +24,16 @@ class BookController < ApplicationController
       render.html :action => 'new'
     end
   end
-
-  def books_params
-    params.require(:books).permit(:title, :description, :author, :genre, :isInReadingList, :isInPersonalLibraryList, :isRead)
-  end
     
   def edit
     @book = Book.find(params[:id])
     puts("DEBUG: in book edit")
   end
-       
+  
+  def book_param
+    params.require(:book).permit(:title, :description, :author, :isInReadingList, :isInPersonalLibraryList, :genre, :tag_names, :totalPage, :readPage)
+ end
+    
   def update
     @book = Book.find(params[:id])
     puts("DEBUG: in book update")
@@ -39,10 +43,6 @@ class BookController < ApplicationController
     else
       render.html :action => 'edit'
     end
-  end
-
-  def book_param
-    params.require(:book).permit(:title, :author, :description, :genre, :isInReadingList, :isInPersonalLibraryList, :isRead)
   end
     
   def show

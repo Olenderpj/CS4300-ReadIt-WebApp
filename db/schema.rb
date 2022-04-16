@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2022_04_13_000614) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "genre"
+    t.integer "totalPage"
+    t.integer "readPage", default: 0
   end
 
   create_table "books_tags", id: false, force: :cascade do |t|

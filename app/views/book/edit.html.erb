@@ -22,6 +22,16 @@
     </p>
 
     <p>
+        <label for = "totalPage">Total Page</label>:
+        <%= b.number_field 'totalPage', id: "totalPage" %>
+    </p>
+
+    <p>
+        <label for = "readPage">Page Read</label>:
+        <%= b.number_field 'readPage', id: "readPage" %>
+    </p>
+    
+    <p>
         <label for = "isRead">Already Read It</label>:
         <%= b.check_box 'isRead', id: "isRead" %>
     </p>
@@ -32,8 +42,8 @@
     </p>
 
     <p>
-    <label for = "isInPersonalLibraryList">Is in Personal Library List</label>:
-    <%= b.check_box 'isInPersonalLibraryList', id: "isInPersonalLibraryList" %>
+        <label for = "isInPersonalLibraryList">Is in Personal Library List</label>:
+        <%= b.check_box 'isInPersonalLibraryList', id: "isInPersonalLibraryList" %>
     </p>
 
     <%= submit_tag "Update", id: "Update" %>
