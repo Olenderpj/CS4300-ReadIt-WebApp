@@ -32,13 +32,18 @@
     </p>
     
     <p>
+        <label for = "isRead">Already Read It</label>:
+        <%= b.check_box 'isRead', id: "isRead" %>
+    </p>
+
+    <p>
         <label for = "isInReadingList">Is in Reading List</label>:
         <%= b.check_box 'isInReadingList', id: "isInReadingList" %>
     </p>
 
     <p>
-    <label for = "isInPersonalLibraryList">Is in Personal Library List</label>:
-    <%= b.check_box 'isInPersonalLibraryList', id: "isInPersonalLibraryList" %>
+        <label for = "isInPersonalLibraryList">Is in Personal Library List</label>:
+        <%= b.check_box 'isInPersonalLibraryList', id: "isInPersonalLibraryList" %>
     </p>
 
     <%= submit_tag "Update", id: "Update" %>

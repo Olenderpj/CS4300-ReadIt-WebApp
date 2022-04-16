@@ -29,7 +29,7 @@ class BookController < ApplicationController
     @book = Book.find(params[:id])
     puts("DEBUG: in book edit")
   end
-    
+  
   def book_param
     params.require(:book).permit(:title, :description, :author, :isInReadingList, :isInPersonalLibraryList, :genre, :tag_names, :totalPage, :readPage)
  end

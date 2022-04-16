@@ -52,7 +52,7 @@ gem 'devise'
 gem "simple_calendar", "~> 2.4"
 
 # gem for postgres database
-gem 'pg'
+#gem 'pg'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
