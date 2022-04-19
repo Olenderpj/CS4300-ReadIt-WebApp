@@ -12,17 +12,21 @@
         <!--- Render content using the base index---->
         <% content_for :main_content do %>
 
-        <div class="d-flex filter-bar">
-            <a id="add-a-book" class="justify-content-end btn btn-primary" href='/book/new'>Add a Book</a>
+        <div class="tagSearchHeader">
+            
+            <div class="AddButton">
+                <a class="btn btn-primary addABook" href='/book/new'>Add a Book</a>
+            </div>
+            
+            <div class="Search">
+                <a class="searchPath"><%= form_tag home_search_path(), method: :get do %></a>
+                <a class="searchPathForm"><%= text_field "searchTag", params[:search], class: "form-control", placeholder: "Search by Tag..." %>
+                <a class="searchButton"><%= submit_tag "Search Tags", class:"btn btn-success" %><% end %></a>
+
+                
+            </div>
         </div>
-        <p class="actions">
-        <%= form_tag home_search_path(), method: :get,
-        class: "form-inline" do %>
-        <%= label_tag "searchtag", "Tags", class: "sr-only" %>
-        <%= text_field_tag "searchtag", params[:search], class: "form-control" %>
-        <%= submit_tag "Search Tags" %>
-        <% end %>
-        </p>
+
         <%= form_tag("/", method: "get") do %>
             <%= label_tag(:q, "Filter By:") %>
             <%= select_tag "option_id", options_for_select([["Author",1], ["Genre",2]]) %>
