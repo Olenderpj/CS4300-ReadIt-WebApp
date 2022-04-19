@@ -1,6 +1,9 @@
 <h1>Edit Book<h1>
 
 <%= form_for @book, :url =>{:action => "update", :id => @book} do |b| %>
+
+    <p>User ID: <%=h @book.user_id %></p>
+
     <p>
         <label for = "title">Title</label>: 
         <%= b.text_field 'title', id: "title" %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_13_000614) do
+ActiveRecord::Schema.define(version: 2022_04_17_202957) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2022_04_13_000614) do
     t.string "genre"
     t.integer "totalPage"
     t.integer "readPage", default: 0
+    t.integer "user_id"
   end
 
   create_table "books_tags", id: false, force: :cascade do |t|

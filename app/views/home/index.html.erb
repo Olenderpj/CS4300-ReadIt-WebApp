@@ -13,7 +13,9 @@
         <% content_for :main_content do %>
 
         <div class="d-flex filter-bar">
-            <a id="add-a-book" class="justify-content-end btn btn-primary" href='/book/new'>Add a Book</a>
+            <% if user_signed_in? %>
+                <a id="add-a-book" class="justify-content-end btn btn-primary" href='/book/new'>Add a Book</a>
+            <% end %>
         </div>
         <p class="actions">
         <%= form_tag home_search_path(), method: :get,
