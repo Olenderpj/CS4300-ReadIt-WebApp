@@ -1,53 +1,76 @@
-<h1>Edit Book<h1>
+<html>
+    <head>
+        <title><%= @page_title or "Add a Book" %></title>
 
-<%= form_for @book, :url =>{:action => "update", :id => @book} do |b| %>
-    <p>
-        <label for = "title">Title</label>: 
-        <%= b.text_field 'title', id: "title" %>
-    </p>
+        <!---- import stylesheet content here----->
+        <%= stylesheet_link_tag 'books'%>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <p>
-        <label for = "author">Author</label>: 
-        <%= b.text_field 'author', id: "author" %>
-    </p>
+    </head>
 
-    <p>
-        <label for = "description">Description</label>:
-        <%= b.text_field 'description', id: "description" %>
-    </p>
 
-    <p>
-        <label for = "genre">Genre</label>:
-        <%= b.text_field 'genre', id: "genre" %>
-    </p>
 
-    <p>
-        <label for = "totalPage">Total Page</label>:
-        <%= b.number_field 'totalPage', id: "totalPage" %>
-    </p>
+    <!--- Render content using the base index---->
+    <% content_for :main_content do %>
+        <form>
+            <p>
+                <h1>Edit Book</h1>
+            
+                </body>
+                        </form>
+                            <%= form_for @book, :url =>{:action => "update", :id => @book} do |b| %>
+                                <p>
+                                    <label for = "title">Title&colon;</label> 
+                                    <%= b.text_field 'title', id: "title" %>
+                                </p>
 
-    <p>
-        <label for = "readPage">Page Read</label>:
-        <%= b.number_field 'readPage', id: "readPage" %>
-    </p>
-    
-    <p>
-        <label for = "isRead">Already Read It</label>:
-        <%= b.check_box 'isRead', id: "isRead" %>
-    </p>
+                                <p>
+                                    <label for = "author">Author&colon;</label>
+                                    <%= b.text_field 'author', id: "author" %>
+                                </p>
 
-    <p>
-        <label for = "isInReadingList">Is in Reading List</label>:
-        <%= b.check_box 'isInReadingList', id: "isInReadingList" %>
-    </p>
+                               <p>
+                                    <label for = "description">Description&colon;</label>
+                                    <%= b.text_field 'description', id: "description" %>
+                                </p>
 
-    <p>
-        <label for = "isInPersonalLibraryList">Is in Personal Library List</label>:
-        <%= b.check_box 'isInPersonalLibraryList', id: "isInPersonalLibraryList" %>
-    </p>
+                               <p>
+                                    <label for = "genre">Genre&colon;</label>
+                                    <%= b.text_field 'genre', id: "genre" %>
+                                </p>
 
-    <%= submit_tag "Update", id: "Update" %>
-<% end -%>
-<%= link_to 'Back to Home', :back, id: 'back-to-home' %>    
-    
-    
+                               <p>
+                                    <label for = "totalPage">Total Page&colon;</label>
+                                    <%= b.number_field 'totalPage', id: "totalPage" %>
+                                </p>
+
+                               <p>
+                                    <label for = "readPage">Page Read&colon;</label>
+                                    <%= b.number_field 'readPage', id: "readPage" %>
+                                </p>
+                                
+                               <p>
+                                    <label for = "isRead">Already Read It</label>
+                                    <%= b.check_box 'isRead', id: "isRead" %>
+                                </p>
+
+                               <p>
+                                    <label for = "isInReadingList">Is in Reading List</label>
+                                    <%= b.check_box 'isInReadingList', id: "isInReadingList" %>
+                                </p>
+
+                               <p>
+                                    <label for = "isInPersonalLibraryList">Is in Personal Library List</label>
+                                    <%= b.check_box 'isInPersonalLibraryList', id: "isInPersonalLibraryList" %>
+                                </p>
+
+                                <%= submit_tag "Update", id: "Update" %>
+                            <% end -%>
+                        </form>
+                    </body>
+            <%= link_to 'Back to Home', :back, id: 'back-to-home' %>   
+            </p> 
+        </form>
+        <% end %>
+        <%= render template: "base" %>
+</html>  
