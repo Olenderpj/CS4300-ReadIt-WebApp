@@ -21,8 +21,33 @@
 
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
             <div class="field">
-              <h5> Email Address</h5>
+              <h5>First Name</h5>
+              <%= f.text_field :firstName, autofocus: true, autocomplete: "firstName", class:"form-control" %>
+            </div>
+
+            <div class="field", style="margin-top: 15px">
+              <h5>Last Name</h5>
+              <%= f.text_field :lastName, autofocus: true, autocomplete: "firstName", class:"form-control" %>
+            </div>
+            
+            <div class="field", style="margin-top: 15px">
+              <h5>Email Address</h5>
               <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+            </div>
+
+            <div class="field", style="margin-top: 15px">
+              <h5>Birth Month</h5>
+              <%= f.text_field :birthMonth, autofocus: true, autocomplete: "birthMonth", class:"form-control" %>
+            </div>
+
+            <div class="field", style="margin-top: 15px">
+              <h5>Birth Day</h5>
+              <%= f.text_field :birthDay, autofocus: true, autocomplete: "birthDay", class:"form-control" %>
+            </div>
+
+            <div class="field", style="margin-top: 15px">
+              <h5>Birth Year</h5>
+              <%= f.text_field :birthYear, autofocus: true, autocomplete: "birthYear", class:"form-control" %>
             </div>
 
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
