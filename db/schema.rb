@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2022_04_19_003337) do
     t.string "genre"
     t.integer "totalPage"
     t.integer "readPage", default: 0
+    t.integer "user_id"
   end
 
   create_table "books_tags", id: false, force: :cascade do |t|
