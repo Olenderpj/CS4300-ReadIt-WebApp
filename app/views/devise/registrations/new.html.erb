@@ -23,6 +23,31 @@
               </div>
 
               <div class="field">
+                <% f.label :firstName %><br />
+                <%= f.text_field :firstName, autofocus: true, class:"form-control", autocomplete: "firstName", placeholder:"First Name" %>
+              </div>
+
+              <div class="field">
+                <% f.label :lastName %><br />
+                <%= f.text_field :lastName, autofocus: true, class:"form-control", autocomplete: "lastName", placeholder:"Last Name" %>
+              </div>
+
+              <div class="field">
+                <% f.label :birthMonth %><br />
+                <%= f.text_field :birthMonth, autofocus: true, class:"form-control", autocomplete: "birthMonth", placeholder:"Birth Month" %>
+              </div>
+
+              <div class="field">
+                <% f.label :birthDay %><br />
+                <%= f.text_field :birthDay, autofocus: true, class:"form-control", autocomplete: "birthDay", placeholder:"Birth Day" %>
+              </div>
+
+              <div class="field">
+                <% f.label :birthYear %><br />
+                <%= f.text_field :birthYear, autofocus: true, class:"form-control", autocomplete: "birthYear", placeholder:"Birth Year" %>
+              </div>
+
+              <div class="field">
                 <% f.label :password %>
                 <% if @minimum_password_length %>
                 <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -31,7 +56,6 @@
               </div>
 
               <div class="confirm-field", >
-                
                 <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", placeholder:"Confirm Password" %>
               </div>
 

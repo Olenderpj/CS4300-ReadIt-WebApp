@@ -21,3 +21,5 @@ Rails.application.config.assets.precompile += %w( index.scss )
 Rails.application.config.assets.precompile += %w( registration.scss )
 Rails.application.config.assets.precompile += %w( calendar.css )
 Rails.application.config.assets.precompile += %w( books.scss )
+
+Rails.application.config.assets.precompile += %w( readMore.scss )

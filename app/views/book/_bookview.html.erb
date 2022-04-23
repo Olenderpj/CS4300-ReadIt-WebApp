@@ -16,9 +16,9 @@
                     <div class="card-body">
                         <h5 class="card-title"><%= @books[count][:title] %></h5>
                         <p class="card-author"><%= @books[count][:author] %></p>
-                        <p class="card-description"><%= @books[count][:description] %></p>
-                        <p class="card-genre"><%= @books[count][:genre] %></p>
-                        <p class="text-right">Progress: <%= @books[count][:readPage].to_s+"/"+@books[count][:totalPage].to_s %></p>
+                        <p class="card-description"><%= @books[count][:description][0, 150] %>...</p>
+                        <p class="card-tags"><%= "Tags: " + @books[count].tags.map(&:name).join(', ') %></p>
+                        <p class="text-right"><b>Progress: <%= @books[count][:readPage].to_s+" / "+@books[count][:totalPage].to_s %></b></p>
                         <p>
                         <% progress_value = (!(@books[count][:totalPage]==0))? '%.2f' % (((@books[count][:readPage].to_f)/(@books[count][:totalPage].to_f))*100.0 ): 0 %>
                         <div class="progress">
@@ -26,9 +26,13 @@
                         style="<%= "width:"+progress_value.to_s+"%" %>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= progress_value %>%</div>
                         </div>
                         </p>
-                        <a href="/show" class="btn btn-primary">Read More</a>
-                        <a href="/book/<%= @books[count][:id] %>/edit" class="btn btn-primary", id="edit-book">Edit Book</a>
-                        <a href="" class="btn btn-warning">Buy on Amazon</a>
+                        <a href="/book/<%= @books[count][:id]%>" class="btn btn-primary">Read More</a>
+                        
+                        <% if user_signed_in? %>
+                            <a href="/book/<%= @books[count][:id] %>/edit" class="btn btn-primary", id="edit-book">Edit Book</a>
+                        <% end %>
+
+                        <a href=<%= "https://www.amazon.com/s?k=" + @books[count][:title].gsub(" ", "+") %> class="btn btn-warning">Buy on Amazon</a>
                         <% count = count +1 %>
                     </div>
                     </div>
