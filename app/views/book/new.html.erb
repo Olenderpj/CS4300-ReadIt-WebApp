@@ -10,19 +10,24 @@
     <!--- Render content using the base index---->
     <% content_for :main_content do %>
 
-        
             <h2>New Book</h2>
                 <%= form_tag :action => 'create' do %>
                     
                     <p>
                         <label for = "title">Title</label> 
                         <%= text_field 'books', 'title', id: "title" %>
+
                     </p>
+
+
 
                     <p>
                         <label for = "author">Author&colon;</label> 
                         <%= text_field 'books', 'author', id: "author" %>
+
                     </p>
+
+
 
                     <p>
                         <label for = "description">Description&colon;</label>

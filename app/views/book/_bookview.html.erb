@@ -17,6 +17,7 @@
                         <h5 class="card-title"><%= @books[count][:title] %></h5>
                         <p class="card-author"><%= @books[count][:author] %></p>
                         <p class="card-description"><%= @books[count][:description][0, 150] %>...</p>
+                        <p class="card-tags"><%= "Tags: " + @books[count].tags.map(&:name).join(', ') %></p>
                         <p class="text-right"><b>Progress: <%= @books[count][:readPage].to_s+" / "+@books[count][:totalPage].to_s %></b></p>
                         <p>
                         <% progress_value = (!(@books[count][:totalPage]==0))? '%.2f' % (((@books[count][:readPage].to_f)/(@books[count][:totalPage].to_f))*100.0 ): 0 %>
