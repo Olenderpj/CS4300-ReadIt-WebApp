@@ -31,7 +31,7 @@
                             <a href="/book/<%= @books[count][:id] %>/edit" class="btn btn-primary", id="edit-book">Edit Book</a>
                         <% end %>
 
-                        <a href=<%= "https://www.amazon.com/s?k=" + @books[count][:title].gsub(" ", "+") %> class="btn btn-warning">Buy on Amazon</a>
+                        <a href=<%= "https://www.amazon.com/s?k=" + @books[count][:title].gsub(" ", "+") + "&i=stripbooks"%> class="btn btn-warning">Buy on Amazon</a>
                         <% count = count +1 %>
                     </div>
                     </div>
