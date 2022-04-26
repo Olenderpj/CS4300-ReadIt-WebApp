@@ -12,16 +12,14 @@
         <!--- Render content using the base index---->
         <% content_for :main_content do %>
 
-        <div class="d-flex filter-bar">
+        <div class="add-a-book">
             <% if user_signed_in? %>
                 <a id="add-a-book" class="justify-content-end btn btn-primary" href='/book/new'>Add a Book</a>
             <% end %>
 
         <div class="tagSearchHeader">
             
-            <div class="AddButton">
-                <a class="btn btn-primary addABook" href='/book/new'>Add a Book</a>
-            </div>
+            
             
             <div class="Search">
                 <a class="searchPath"><%= form_tag home_search_path(), method: :get do %></a>
