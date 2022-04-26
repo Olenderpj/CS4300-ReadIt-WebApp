@@ -34,9 +34,27 @@ class HomeController < ApplicationController
       flash.alert = "Enter tags to search books by tags"
     end
 
+    @bookss = []
+
+    if @tags[0] != nil
+      @tags.each do |t|
+        for i in 0..(t.books.length-1)
+          if !(@bookss.include? t.books[i])
+            @bookss<<t.books[i]
+          end
+        end
+      end
+    end
+
     
-    if params[:searchtag].present? and !(@tags.all? {|x| x.nil?})
-    flash.alert = "Tags found!"
+
+    if @bookss.length != 0
+      flash.alert = "Tags found!"
+    end
+
+    
+    if params[:searchtag].present? and !(@tags.all? {|x| x.nil?}) and @bookss.length != 0
+    
       
       @books = []
 
