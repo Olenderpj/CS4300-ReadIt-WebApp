@@ -1,0 +1,22 @@
+
+.Genre, .Description, .TotalPages{
+    display: flex;
+    
+}
+
+.Title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.BookInfo{
+    margin-left: 15px;
+}
+
+.progress{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.GenreInfo{
+    margin-left: 56px;
+}

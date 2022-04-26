@@ -1,0 +1,46 @@
+<head>
+    <!---- import stylesheet content here ----->
+    <%= stylesheet_link_tag 'readMore'%>
+</head>
+
+
+<div class="container">
+    <div style="width: 100%; margin-top: 50px;">
+        <div class="header">
+
+          <div class="Title">
+            <h2><%= @book[:title]%></h2>
+            <a href=<%= "https://www.amazon.com/s?k=" + @book[:title].gsub(" ", "+") + "&i=stripbooks"%> class="btn btn-warning">Buy on Amazon</a>
+          </div>
+            
+          </h2>       
+          <hr>
+          
+          <% if user_signed_in? %>
+            <p><b> Progress: </b></p>
+            <div class="progress">
+                <% progress_value = (!(@book[:totalPage]==0))? '%.2f' % (((@book[:readPage].to_f)/(@book[:totalPage].to_f))*100.0 ): 0 %>
+                
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" 
+                style="<%= "width:"+progress_value.to_s+"%" %>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= progress_value %>%</div>
+            </div>
+            <% end %>
+            
+            <div class="Genre">
+                <p><b> Genre: </b></p>
+                <p class="GenreInfo"><%= +@book[:genre] %></p>
+            </div>
+
+            <div class="TotalPages">
+                <p><b> Total Pages: </b></p>
+                <p class="BookInfo"><%= +@book[:totalPage] %></p>
+            </div>
+
+            <div class="Description">
+                <p><b> Description: </b></p>
+                <p class="BookInfo"><%= +@book[:description] %></p>
+            </div>                    
+
+        </div>
+    </div>
+</div>
