@@ -2,6 +2,13 @@ Rails.application.routes.draw do
   resources :meetings
 
   resources :book
+  resources :book do
+    resources :tags, only: [] do
+      member do
+        delete :remove
+      end
+    end
+  end  
 
   resources :books do
     collection do

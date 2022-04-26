@@ -1,4 +1,9 @@
 <!--- Generated list of Example Books ------->
+<% flash.each do |type, msg| %>
+    <div class="alert alert-info">
+      <%= msg %>
+    </div>
+  <% end %>
             <table>
             <% count = 0 %>
             <% for i in 1..(@counts/5)+1 do%>
@@ -15,6 +20,7 @@
                     <img src="https://media.wired.com/photos/5be4cd03db23f3775e466767/master/pass/books-521812297.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><%= @books[count][:title] %></h5>
+                        <p class="card-user_id">User Id: <%= @books[count][:user_id] %></p>
                         <p class="card-author"><%= @books[count][:author] %></p>
                         <p class="card-description"><%= @books[count][:description][0, 150] %>...</p>
                         <p class="card-tags"><%= "Tags: " + @books[count].tags.map(&:name).join(', ') %></p>
@@ -32,7 +38,7 @@
                             <a href="/book/<%= @books[count][:id] %>/edit" class="btn btn-primary", id="edit-book">Edit Book</a>
                         <% end %>
 
-                        <a href=<%= "https://www.amazon.com/s?k=" + @books[count][:title].gsub(" ", "+") + "&i=stripbooks"%> class="btn btn-warning">Buy on Amazon</a>
+                        <a href=<%= "https://www.amazon.com/s?k=" + @books[count][:title].gsub(" ", "+") %> class="btn btn-warning">Buy on Amazon</a>
                         <% count = count +1 %>
                     </div>
                     </div>
@@ -42,5 +48,3 @@
                 </tr>
             <% end %>
             </table>
-
-       

@@ -19,10 +19,24 @@ class HomeController < ApplicationController
 
   def search
     @tags = []
-    params[:searchtag].split.each do |s|
+    #params[:searchtag].each.split do |s|
+      #@tags << Tag.find_by_name(s.downcase)
+    #end
+    parameterTag = params[:searchtag][0]
+    tags = parameterTag.strip.split(/\s+/)
+    tags.each do |s|
       @tags << Tag.find_by_name(s.downcase)
     end
+
+    if !(params[:searchtag][0].strip.split(/\s+/).blank?) and (@tags[0] == nil)
+      flash.alert = "Tags Not found!"
+    elsif params[:searchtag][0].strip.split(/\s+/).blank?
+      flash.alert = "Enter tags to search books by tags"
+    end
+
+    
     if params[:searchtag].present? and !(@tags.all? {|x| x.nil?})
+    flash.alert = "Tags found!"
       
       @books = []
 
@@ -33,7 +47,6 @@ class HomeController < ApplicationController
           end
         end
       end
-
       #@tags = Tag.find_by_name(params[:searchtag])
       #@books = @tags.books
       @counts = @books.length
@@ -45,6 +58,5 @@ class HomeController < ApplicationController
     end
     render 'home/index'
   end
-
   
 end

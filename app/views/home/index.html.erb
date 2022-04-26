@@ -20,7 +20,7 @@
             
             <div class="Search">
                 <a class="searchPath"><%= form_tag home_search_path(), method: :get do %></a>
-                <a class="searchPathForm"><%= text_field "searchTag", params[:search], class: "form-control", placeholder: "Search by Tag..." %>
+                <a class="searchPathForm"><%= text_field "searchtag", params[:search], class: "form-control", placeholder: "Search by Tag..." %>
                 <a class="searchButton"><%= submit_tag "Search Tags", class:"btn btn-success" %><% end %></a>
 
                 
