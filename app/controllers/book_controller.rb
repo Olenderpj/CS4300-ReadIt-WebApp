@@ -60,6 +60,14 @@ class BookController < ApplicationController
     @book = Book.find(params[:id])
   end
 
+  def remove
+    @book = Book.find(params[:book_id])
+    @tag = Tag.find(params[:id])
+    @book.tags.destroy(@tag)
+
+    render "book/show"
+  end
+
   def search
     if params[:search].present?
       @books = @books.search(params[:search])
