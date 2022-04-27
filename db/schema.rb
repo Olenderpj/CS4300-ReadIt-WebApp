@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_19_003337) do
+ActiveRecord::Schema.define(version: 2022_04_19_210750) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2022_04_19_003337) do
     t.integer "totalPage"
     t.integer "readPage", default: 0
     t.integer "user_id"
+    t.string "comment"
   end
 
   create_table "books_tags", id: false, force: :cascade do |t|
@@ -53,6 +54,11 @@ ActiveRecord::Schema.define(version: 2022_04_19_003337) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sign_in_count"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "current_sign_in_at"
     t.string "firstName"
     t.string "lastName"
     t.integer "birthMonth"
