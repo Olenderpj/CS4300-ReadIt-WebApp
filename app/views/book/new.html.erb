@@ -70,6 +70,12 @@
                     <label for = "isInPersonalLibraryList">Is in Personal Library List</label>
                     <%= check_box 'books', 'isInPersonalLibraryList', id: "isInPersonalLibraryList" %>
                     </p>
+
+                    <p>
+                        <label for = "image">image</label> 
+                        <%= text_field 'books', 'image', id: "image" %>
+
+                    </p>
         
         <%= submit_tag "Create", id: "Create" %>
                     
