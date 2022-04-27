@@ -3,13 +3,13 @@ Feature: Sign-In page
 
 Scenario: The user wants to login
     When The user is on the homepage
-    And they click on "Sign-In"
-    Then the should be redirected to the "Sign-In Form"
+    And they click on Sign-In
+    Then the should be redirected to the Sign-In Form
 
 Scenario: The user submits the login form with VALID credentials
-    When The user successfully signs in with valid credentials,
+    When The user successfully signs in with valid credentials
     Then The user should be directed to the home page
-    And the user should see a welcome message of "Manage My Account"
+    And the user should see a welcome message of Manage My Account
 
 Scenario: The user submits the login form with INVALID credentials
     When The user enters their invlaid credentials

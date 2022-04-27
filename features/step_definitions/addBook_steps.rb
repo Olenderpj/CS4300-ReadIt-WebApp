@@ -1,4 +1,4 @@
-  Given(/^I am on the home page$/) do
+  Given(/^I am on the root page$/) do
      
   end
 

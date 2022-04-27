@@ -10,10 +10,5 @@ Scenario: User wants to login
 
 Scenario: The user wants to log out of an existing account
     When the user clicks on the Log-out button
-    And the users session is be destroyed
     Then they will be redirected to the index home page
 
-Scenario: The user wants to modify their account
-    Given the user clicks on the Account settings button
-    And the user is logged in
-    Then the user will be re-directed to the account settings page
