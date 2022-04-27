@@ -5,7 +5,7 @@ Feature: add book to read-it
 
 @addBook
 Scenario: Display book page
-  Given I am on the home page
+  Given I am on the root page
   When I click on Add a Book
   Then I should be on the new book page
   And I should see book labels
