@@ -1,5 +1,6 @@
-<div class="tag">
-<%= link_to "<span></span>".html_safe, "#", class: "remove",
-title: "remove" %>
+<div class="tag" id="tag">
+<%= link_to "<span>x</span>".html_safe,
+book_remove_path(@book, id: tag.id), method: :delete,
+class: "remove", title: "remove" %>
 <%= tag.name %>
 </div>
