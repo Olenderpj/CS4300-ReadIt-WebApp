@@ -28,6 +28,7 @@ books = Book.create([
     genre: "Fiction",
     totalPage: 309,
     readPage: 0,
+    image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474154022l/3._SY475_.jpg",
     user_id: 1,
     },
     {
@@ -37,6 +38,7 @@ books = Book.create([
     genre: "Fiction",
     totalPage: 341,
     readPage: 250,
+    image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474169725l/15881._SY475_.jpg",
     user_id: 1,
     },
     {
@@ -46,6 +48,7 @@ books = Book.create([
     genre: "Fiction, Magic",
     totalPage: 435,
     readPage: 50,
+    image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1630547330l/5._SY475_.jpg",
     user_id: 1,  
     },
     {
@@ -55,6 +58,7 @@ books = Book.create([
     genre: "Fiction, Magic",
     totalPage: 734,
     readPage: 0,
+    image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1554006152l/6.jpg",
     user_id: 1,  
     },
     {
@@ -64,6 +68,7 @@ books = Book.create([
     genre: "Fiction, Magic",
     totalPage: 870,
     readPage: 865,
+    image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546910265l/2.jpg",
     user_id: 1,  
     },
     {
@@ -73,6 +78,7 @@ books = Book.create([
     genre: "Fiction, Magic, Adventure",
     totalPage: 652,
     readPage: 0,
+    image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1587697303l/1._SX318_.jpg",
     user_id: 1,  
     },
     {
@@ -82,6 +88,7 @@ books = Book.create([
     genre: "Fiction, Magic, Adventure",
     totalPage: 759,
     readPage: 547,
+    image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474171184l/136251._SY475_.jpg",
     user_id: 1,  
     },
     {
@@ -91,6 +98,7 @@ books = Book.create([
     genre: "Horror, Zombies, Science-Fiction",
     totalPage: 458,
     readPage: 0,
+    image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1264898635l/7157310.jpg",
     user_id: 1,  
     },
     {
@@ -100,6 +108,7 @@ books = Book.create([
     genre: "Fiction, Mystery, Young Adult, Classics",
     totalPage: 226,
     readPage: 25,
+    image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1479863624l/1618._SY475_.jpg",
     user_id: 1,  
     },
     {
@@ -109,6 +118,7 @@ books = Book.create([
     genre: "Romance, Contemporary, Adult",
     totalPage: 385,
     readPage: 0,
+    image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1382938138l/12650149.jpg",
     user_id: 1,  
     },
 ])
