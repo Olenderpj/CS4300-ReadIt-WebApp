@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   get 'home/search'
+
+  get '/tags' => 'tags#index', as: 'tags'
   
    #calendar routes
    get '/calendar' => 'calendar#index'
