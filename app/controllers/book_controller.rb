@@ -3,12 +3,23 @@ class BookController < ApplicationController
   layout 'application'
 
   def index
-    @book = Book.all 
+    @book = Book.all
+    
+    @avTags = []
+    Tag.all.each do |t|
+      @avTags<<t[:name]
+    end
+    gon.tagName = @avTags
   end
 
   def new
     @book = Book.new
     @isInReadingList = true # default to true for the quickest entry of a book
+    @avTags = []
+    Tag.all.each do |t|
+      @avTags<<t[:name]
+    end
+    gon.tagName = @avTags
   end
 
   def books_params
@@ -39,6 +50,11 @@ class BookController < ApplicationController
   def edit
     @book = Book.find(params[:id])
     puts("DEBUG: in book edit")
+    @avTags = []
+    Tag.all.each do |t|
+      @avTags<<t[:name]
+    end
+    gon.tagName = @avTags
   end
   
   def book_param

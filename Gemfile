@@ -57,6 +57,12 @@ gem "simple_calendar", "~> 2.4"
 # gem for postgres database
 #gem 'pg'
 
+# autocpmlete
+gem 'jquery-ui-rails'
+
+# get variable from controller to js
+gem 'gon', '~> 6.2'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

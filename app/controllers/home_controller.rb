@@ -3,6 +3,12 @@ class HomeController < ApplicationController
     @books = Book.all
     @counts = Book.count
     @order_option = Book.order_options
+
+    @avTags = []
+    Tag.all.each do |t|
+      @avTags<<t[:name]
+    end
+    gon.tagName = @avTags
     
 
     if (params[:commit] == 'Filter')
@@ -18,6 +24,12 @@ class HomeController < ApplicationController
   end
 
   def search
+    @avTags = []
+    Tag.all.each do |t|
+      @avTags<<t[:name]
+    end
+    gon.tagName = @avTags
+
     @tags = []
     #params[:searchtag].each.split do |s|
       #@tags << Tag.find_by_name(s.downcase)
@@ -26,12 +38,6 @@ class HomeController < ApplicationController
     tags = parameterTag.strip.split(/\s+/)
     tags.each do |s|
       @tags << Tag.find_by_name(s.downcase)
-    end
-
-    if !(params[:searchtag][0].strip.split(/\s+/).blank?) and (@tags[0] == nil)
-      flash.alert = "Tags Not found!"
-    elsif params[:searchtag][0].strip.split(/\s+/).blank?
-      flash.alert = "Enter tags to search books by tags"
     end
 
     @bookss = []
@@ -44,6 +50,12 @@ class HomeController < ApplicationController
           end
         end
       end
+    end
+
+    if !(params[:searchtag][0].strip.split(/\s+/).blank?) and @bookss.length == 0
+      flash.alert = "Tags Not found!"
+    elsif params[:searchtag][0].strip.split(/\s+/).blank?
+      flash.alert = "Enter tags to search books by tags"
     end
 
     
