@@ -29,16 +29,8 @@ class BookController < ApplicationController
   def create
     @book = Book.new(books_params)
     
-    # Make this if/else code prettier in the refactor sprint
-    # Might not need this now that I disabled the Add New Book
-    # button unless logged in
-    if (current_user == nil)
-      tmp_id = 0
-    else
-      tmp_id = current_user.id
-    end
-    puts("DEBUG: in book create. Current_user.id=" + tmp_id.to_s())
-    @book.user_id = tmp_id
+    puts("DEBUG: in book create. Current_user if logged in is:" + current_user.to_s())
+    user_signed_in? ? @book.user_id = current_user.id : @book.user_id = 1
 
     if @book.save 
       redirect_to '/'
