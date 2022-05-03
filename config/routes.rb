@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   get 'home/search'
+  get '/alread' => 'home#alread'
+  get '/willread' => 'home#willread'
 
   get '/tags' => 'tags#index', as: 'tags'
   

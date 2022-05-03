@@ -92,6 +92,62 @@ class HomeController < ApplicationController
     render 'home/index'
   end
 
+  def alread
+    filter_books_by_user_id
+    @bookList = @books
+    #@bookList = Book.all
+    @books = []
+
+    @bookList.each do |t|
+      if t[:isRead]
+        @books<<t
+      end
+      
+    end
+
+    if @books.empty?
+      flash.alert = "No books to show!"
+    end
+    
+    @avTags = []
+    Tag.all.each do |t|
+      @avTags<<t[:name]
+    end
+    gon.tagName = @avTags
+    @counts = @books.length
+
+    #render 'home/index'
+    render 'book/listview'
+  end
+
+  def willread
+    filter_books_by_user_id
+    @bookList = @books
+    #@bookList = Book.all
+    @books = []
+
+    @bookList.each do |t|
+      if t[:isInReadingList]
+        @books<<t
+      end
+    end
+
+    if @books.empty?
+      flash.alert = "No books in reading list!"
+    end
+    
+    @avTags = []
+    Tag.all.each do |t|
+      @avTags<<t[:name]
+    end
+    gon.tagName = @avTags
+
+    @counts = @books.length
+    
+    render 'book/listview'
+    #render 'home/index'
+  end
+
   def filter_books_by_user_id
     #@books = Book.all
     #@counts = @Books.count
