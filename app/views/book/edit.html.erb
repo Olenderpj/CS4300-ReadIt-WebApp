@@ -19,6 +19,7 @@
                 </body>
                         </form>
                             <%= form_for @book, :url =>{:action => "update", :id => @book} do |b| %>
+
                                 <p>
                                     <label for = "title">Title&colon;</label> 
                                     <%= b.text_field 'title', id: "title" %>

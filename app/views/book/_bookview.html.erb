@@ -7,6 +7,7 @@
             <table>
             <% count = 0 %>
             <% for i in 1..(@counts/5)+1 do%>
+                <% puts("DEBUG: In the display loop on home page where count=" + count.to_s()) %>
                 <% if count == @counts %>
                 <% break %>
                 <% end %>
@@ -17,21 +18,44 @@
                 <% end %>
                 <td>
                     <div class="card" style="width: 18rem;">
-                    <img src="https://media.wired.com/photos/5be4cd03db23f3775e466767/master/pass/books-521812297.jpg" class="card-img-top" alt="...">
+                    <% if not @books[count][:image].nil? %>
+                        <img src="<%= @books[count][:image] %>"class="card-img-top" alt="... No image to display ..." width="300" height="350">
+                    <% else %>
+                        <img src="https://media.wired.com/photos/5be4cd03db23f3775e466767/master/pass/books-521812297.jpg" class="card-img-top" alt="..." width="300" height="350">
+                    <% end %>
                     <div class="card-body">
+                        
                         <h5 class="card-title"><%= @books[count][:title] %></h5>
-                        <p class="card-user_id">User Id: <%= @books[count][:user_id] %></p>
+                        
                         <p class="card-author"><%= @books[count][:author] %></p>
                         <p class="card-description"><%= @books[count][:description][0, 150] %>...</p>
+
+                        <% if @books[count][:isInReadingList] %>
+                            <%= image_tag("icons/ToReadListIcon.jpg", height: '25px') %>
+                        <% end %>
+                        <% if @books[count][:isRead] %>
+                            <%= image_tag("icons/BookReadIcon2.jpg", height: '30px') %>
+                        <% end %>
+                        <% if @books[count][:isInPersonalLibraryList] %>
+                            <%= image_tag("icons/LibraryIcon.png", height: '25px') %>
+                        <% end %>
+
                         <p class="card-tags"><%= "Tags: " + @books[count].tags.map(&:name).join(', ') %></p>
-                        <p class="text-right"><b>Progress: <%= @books[count][:readPage].to_s+" / "+@books[count][:totalPage].to_s %></b></p>
-                        <p>
-                        <% progress_value = (!(@books[count][:totalPage]==0))? '%.2f' % (((@books[count][:readPage].to_f)/(@books[count][:totalPage].to_f))*100.0 ): 0 %>
-                        <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" 
-                        style="<%= "width:"+progress_value.to_s+"%" %>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= progress_value %>%</div>
-                        </div>
-                        </p>
+                        
+                        <% if user_signed_in? %>
+                            <p class="text-right"><b>Progress: <%= @books[count][:readPage].to_s+" / "+@books[count][:totalPage].to_s %></b></p>
+                            <p>
+                            <% progress_value = (!(@books[count][:totalPage]==0))? '%.2f' % (((@books[count][:readPage].to_f)/(@books[count][:totalPage].to_f))*100.0 ): 0 %>
+                            <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" 
+                            style="<%= "width:"+progress_value.to_s+"%" %>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= progress_value %></div>
+                            </div>
+                            </p>
+
+                        <% else %>
+                            <p>Total Pages: <%= @books[count][:totalPage]%></p>
+                        <% end %>
+
                         <a href="/book/<%= @books[count][:id]%>" class="btn btn-primary">Read More</a>
                         
                         <% if user_signed_in? %>

@@ -1,8 +1,16 @@
 class HomeController < ApplicationController
   def index
-    @books = Book.all
-    @counts = Book.count
+    #@books = Book.all
+    #@counts = @Books.count
+    filter_books_by_user_id
+    puts("DEBUG: counts=" + @counts.to_s())
     @order_option = Book.order_options
+
+    @avTags = []
+    Tag.all.each do |t|
+      @avTags<<t[:name]
+    end
+    gon.tagName = @avTags
     
 
     if (params[:commit] == 'Filter')
@@ -18,6 +26,12 @@ class HomeController < ApplicationController
   end
 
   def search
+    @avTags = []
+    Tag.all.each do |t|
+      @avTags<<t[:name]
+    end
+    gon.tagName = @avTags
+
     @tags = []
     #params[:searchtag].each.split do |s|
       #@tags << Tag.find_by_name(s.downcase)
@@ -26,12 +40,6 @@ class HomeController < ApplicationController
     tags = parameterTag.strip.split(/\s+/)
     tags.each do |s|
       @tags << Tag.find_by_name(s.downcase)
-    end
-
-    if !(params[:searchtag][0].strip.split(/\s+/).blank?) and (@tags[0] == nil)
-      flash.alert = "Tags Not found!"
-    elsif params[:searchtag][0].strip.split(/\s+/).blank?
-      flash.alert = "Enter tags to search books by tags"
     end
 
     @bookss = []
@@ -44,6 +52,12 @@ class HomeController < ApplicationController
           end
         end
       end
+    end
+
+    if !(params[:searchtag][0].strip.split(/\s+/).blank?) and @bookss.length == 0
+      flash.alert = "Tags Not found!"
+    elsif params[:searchtag][0].strip.split(/\s+/).blank?
+      flash.alert = "Enter tags to search books by tags"
     end
 
     
@@ -71,10 +85,25 @@ class HomeController < ApplicationController
       session[:searchtag] = params[:searchtag]
       #@istag = 1
     else
-      @books = Book.all
-      @counts = Book.count
+      #@books = Book.all
+      #@counts = Book.count
+      filter_books_by_user_id
     end
     render 'home/index'
+  end
+
+  def filter_books_by_user_id
+    #@books = Book.all
+    #@counts = @Books.count
+    if user_signed_in?
+      puts("DEBUG: in HomeController index user is signed in. Current_user.id=" + current_user.id.to_s())
+      @books = Book.filter_by_user_id(current_user.id)
+      @counts = Book.filter_by_user_id(current_user.id).count
+    else
+      puts("DEBUG: in HomeController index user is NOT signed in. user book.user_id=1 for books to display when not logged in") #tried book.user_id=0, but it didn't like id=0
+      @books = Book.filter_by_user_id(1)
+      @counts = Book.filter_by_user_id(1).count
+    end
   end
   
 end

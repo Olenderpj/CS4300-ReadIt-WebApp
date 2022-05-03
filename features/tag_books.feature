@@ -7,14 +7,14 @@ Feature: Applying user tags to listed books
 Background: books have been added to database
 
     Given the following books are in database:
-    | title                         | author            | genre    |  tag_names        |
-    | The Lord of the Rings         | J. R. R. Tolkien  | Fiction  |  Fiction Fantasy  |
-    | Ocean 2                       | R.R Afnan         | Fantasy  |  Fantasy          |
-    | Nigma Machine                 | L nigma           | Fiction  |  Fiction          |
-    | The Silent Patient            | Alex Michaelides  | Thriller |  Thriller         |
-    | The Family Across the Street  | Nicole Trope      | Thriller |  Thriller         |
+    | title                         | author            | genre    |  tag_names        | description   | totalPage   |
+    | The Lord of the Rings         | J. R. R. Tolkien  | Fiction  |  Fiction Fantasy  | Test Desc.    | 400         |
+    | Nigma Machine                 | L nigma           | Fiction  |  Fiction          | Test Desc.    | 499         |
+    | Ocean 2                       | R.R Afnan         | Fantasy  |  Fantasy          | Test Desc.    | 350         |
+    | The Silent Patient            | Alex Michaelides  | Thriller |  Thriller         | Test Desc.    | 275         |
+    | The Family Across the Street  | Nicole Trope      | Thriller |  Thriller         | Test Desc     | 500         |
 
-    And  I am on the Read-it home page
+    And  I am on the Read-it root page
 
 Scenario: Filter with one tag
 

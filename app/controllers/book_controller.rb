@@ -3,31 +3,35 @@ class BookController < ApplicationController
   layout 'application'
 
   def index
-    @book = Book.all 
+    puts("DEBUG: in index method of BookController")
+    @book = Book.all
+    
+    @avTags = []
+    Tag.all.each do |t|
+      @avTags<<t[:name]
+    end
+    gon.tagName = @avTags
   end
 
   def new
     @book = Book.new
     @isInReadingList = true # default to true for the quickest entry of a book
+    @avTags = []
+    Tag.all.each do |t|
+      @avTags<<t[:name]
+    end
+    gon.tagName = @avTags
   end
 
   def books_params
-    params.require(:books).permit(:title, :description, :author, :isInReadingList, :isInPersonalLibraryList, :genre, :tag_names, :totalPage, :readPage)
+    params.require(:books).permit(:title, :description, :author, :isRead, :isInReadingList, :isInPersonalLibraryList, :genre, :tag_names, :totalPage, :readPage, :image)
   end
     
   def create
     @book = Book.new(books_params)
     
-    # Make this if/else code prettier in the refactor sprint
-    # Might not need this now that I disabled the Add New Book
-    # button unless logged in
-    if (current_user == nil)
-      tmp_id = 0
-    else
-      tmp_id = current_user.id
-    end
-    puts("DEBUG: in book create. Current_user.id=" + tmp_id.to_s())
-    @book.user_id = tmp_id
+    puts("DEBUG: in book create. Current_user if logged in is:" + current_user.to_s())
+    user_signed_in? ? @book.user_id = current_user.id : @book.user_id = 1
 
     if @book.save 
       redirect_to '/'
@@ -39,10 +43,15 @@ class BookController < ApplicationController
   def edit
     @book = Book.find(params[:id])
     puts("DEBUG: in book edit")
+    @avTags = []
+    Tag.all.each do |t|
+      @avTags<<t[:name]
+    end
+    gon.tagName = @avTags
   end
   
   def book_param
-    params.require(:book).permit(:title, :description, :author, :isInReadingList, :isInPersonalLibraryList, :genre, :tag_names, :totalPage, :readPage)
+    params.require(:book).permit(:title, :description, :author, :isRead, :isInReadingList, :isInPersonalLibraryList, :genre, :tag_names, :totalPage, :readPage, :image)
  end
     
   def update
