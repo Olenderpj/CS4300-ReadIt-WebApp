@@ -26,9 +26,20 @@
                     <div class="card-body">
                         
                         <h5 class="card-title"><%= @books[count][:title] %></h5>
-                        <p class="card-user_id">User Id: <%= @books[count][:user_id] %></p>
+                        
                         <p class="card-author"><%= @books[count][:author] %></p>
                         <p class="card-description"><%= @books[count][:description][0, 150] %>...</p>
+
+                        <% if @books[count][:isInReadingList] %>
+                            <%= image_tag("icons/ToReadListIcon.jpg", height: '25px') %>
+                        <% end %>
+                        <% if @books[count][:isRead] %>
+                            <%= image_tag("icons/BookReadIcon2.jpg", height: '30px') %>
+                        <% end %>
+                        <% if @books[count][:isInPersonalLibraryList] %>
+                            <%= image_tag("icons/LibraryIcon.png", height: '25px') %>
+                        <% end %>
+
                         <p class="card-tags"><%= "Tags: " + @books[count].tags.map(&:name).join(', ') %></p>
                         
                         <% if user_signed_in? %>

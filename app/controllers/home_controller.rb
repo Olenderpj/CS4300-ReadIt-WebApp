@@ -1,16 +1,8 @@
 class HomeController < ApplicationController
   def index
     #@books = Book.all
-    if user_signed_in?
-      puts("DEBUG: in HomeController index user is signed in. Current_user.id=" + current_user.id.to_s())
-      @books = Book.filter_by_user_id(current_user.id)
-      @counts = Book.filter_by_user_id(current_user.id).count
-    else
-      puts("DEBUG: in HomeController index user is NOT signed in. books will be filtered by user_id(1)")
-      @books = Book.filter_by_user_id(1)
-      @counts = Book.filter_by_user_id(1).count
-    end
     #@counts = @Books.count
+    filter_books_by_user_id
     puts("DEBUG: counts=" + @counts.to_s())
     @order_option = Book.order_options
 
@@ -93,10 +85,25 @@ class HomeController < ApplicationController
       session[:searchtag] = params[:searchtag]
       #@istag = 1
     else
-      @books = Book.all
-      @counts = Book.count
+      #@books = Book.all
+      #@counts = Book.count
+      filter_books_by_user_id
     end
     render 'home/index'
+  end
+
+  def filter_books_by_user_id
+    #@books = Book.all
+    #@counts = @Books.count
+    if user_signed_in?
+      puts("DEBUG: in HomeController index user is signed in. Current_user.id=" + current_user.id.to_s())
+      @books = Book.filter_by_user_id(current_user.id)
+      @counts = Book.filter_by_user_id(current_user.id).count
+    else
+      puts("DEBUG: in HomeController index user is NOT signed in. user book.user_id=1 for books to display when not logged in") #tried book.user_id=0, but it didn't like id=0
+      @books = Book.filter_by_user_id(1)
+      @counts = Book.filter_by_user_id(1).count
+    end
   end
   
 end
