@@ -21,6 +21,10 @@ class HomeController < ApplicationController
       when '2'
         @books = @books.order(:genre) 
         session[:option_id] = '2'
+
+      when '3'
+        @books = @books.order(:created_at) 
+        session[:option_id] = '3'
       end
     end
   end

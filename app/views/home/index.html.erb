@@ -33,7 +33,7 @@
 
         <%= form_tag("/", method: "get") do %>
             <%= label_tag(:q, "Sort By:") %>
-            <%= select_tag "option_id", options_for_select([["Author",1], ["Genre",2]]) %>
+            <%= select_tag "option_id", options_for_select([["Author",1], ["Genre",2],["Oldest-Newest",3]]) %>
 
             <%= submit_tag("Sort") %>
           <% end %>

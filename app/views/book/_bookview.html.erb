@@ -18,7 +18,7 @@
                 <% end %>
                 <td>
                     <div class="card" style="width: 18rem;">
-                    <% if not @books[count][:image].nil? and !(@books.empty?) %>
+                    <% if not @books[count][:image].nil? %>
                         <img src="<%= @books[count][:image] %>"class="card-img-top" alt="... No image to display ..." width="300" height="350">
                     <% else %>
                         <img src="https://media.wired.com/photos/5be4cd03db23f3775e466767/master/pass/books-521812297.jpg" class="card-img-top" alt="..." width="300" height="350">
