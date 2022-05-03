@@ -3,6 +3,7 @@ class BookController < ApplicationController
   layout 'application'
 
   def index
+    puts("DEBUG: in index method of BookController")
     @book = Book.all
     
     @avTags = []
@@ -23,22 +24,14 @@ class BookController < ApplicationController
   end
 
   def books_params
-    params.require(:books).permit(:title, :description, :author, :isInReadingList, :isInPersonalLibraryList, :genre, :tag_names, :totalPage, :readPage, :image)
+    params.require(:books).permit(:title, :description, :author, :isRead, :isInReadingList, :isInPersonalLibraryList, :genre, :tag_names, :totalPage, :readPage, :image)
   end
     
   def create
     @book = Book.new(books_params)
     
-    # Make this if/else code prettier in the refactor sprint
-    # Might not need this now that I disabled the Add New Book
-    # button unless logged in
-    if (current_user == nil)
-      tmp_id = 0
-    else
-      tmp_id = current_user.id
-    end
-    puts("DEBUG: in book create. Current_user.id=" + tmp_id.to_s())
-    @book.user_id = tmp_id
+    puts("DEBUG: in book create. Current_user if logged in is:" + current_user.to_s())
+    user_signed_in? ? @book.user_id = current_user.id : @book.user_id = 1
 
     if @book.save 
       redirect_to '/'
@@ -58,7 +51,7 @@ class BookController < ApplicationController
   end
   
   def book_param
-    params.require(:book).permit(:title, :description, :author, :isInReadingList, :isInPersonalLibraryList, :genre, :tag_names, :totalPage, :readPage, :image)
+    params.require(:book).permit(:title, :description, :author, :isRead, :isInReadingList, :isInPersonalLibraryList, :genre, :tag_names, :totalPage, :readPage, :image)
  end
     
   def update
