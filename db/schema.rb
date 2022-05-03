@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2022_04_27_183247) do
     t.integer "totalPage"
     t.integer "readPage", default: 0
     t.integer "user_id"
+    t.string "comment"
     t.string "image"
   end
 
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(version: 2022_04_27_183247) do
     t.integer "birthMonth"
     t.integer "birthDay"
     t.integer "birthYear"
+    t.datetime "current_sign_in_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

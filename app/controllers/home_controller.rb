@@ -13,7 +13,7 @@ class HomeController < ApplicationController
     gon.tagName = @avTags
     
 
-    if (params[:commit] == 'Filter')
+    if (params[:commit] == 'Sort')
       case params[:option_id]
       when '1'
         @books = @books.order(:author) 
