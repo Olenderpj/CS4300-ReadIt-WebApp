@@ -6,7 +6,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.string :description
       t.boolean :isInReadingList
       t.boolean :isInPersonalLibraryList
-      t.string :isRead
+      t.boolean :isRead
       t.string :boolean
 
       t.timestamps
