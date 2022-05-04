@@ -25,9 +25,8 @@ ActiveRecord::Schema.define(version: 2022_05_03_214419) do
     t.integer "totalPage"
     t.integer "readPage", default: 0
     t.integer "user_id"
-    t.string "comment"
     t.string "image"
-    t.string "comments"
+    t.string "comment"
   end
 
   create_table "books_tags", id: false, force: :cascade do |t|
@@ -56,17 +55,11 @@ ActiveRecord::Schema.define(version: 2022_05_03_214419) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "sign_in_count"
-    t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
-    t.datetime "current_sign_in_at"
     t.string "firstName"
     t.string "lastName"
     t.integer "birthMonth"
     t.integer "birthDay"
     t.integer "birthYear"
-    t.datetime "current_sign_in_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
