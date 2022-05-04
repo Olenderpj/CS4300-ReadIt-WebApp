@@ -12,10 +12,7 @@
         <!--- Render content using the base index---->
         <% content_for :main_content do %>
 
-        <div class="add-a-book">
-            <% if user_signed_in? %>
-                <a id="add-a-book" class="justify-content-end btn btn-primary" href='/book/new'>Add a Book</a>
-            <% end %>
+        
 
         <div class="tagSearchHeader">
             
@@ -24,7 +21,15 @@
             <div class="Search">
                 <a class="searchPath"><%= form_tag home_search_path(), method: :get do %></a>
                 <a class="searchPathForm"><%= text_field "searchtag", params[:search], class: "form-control", id: "tags", placeholder: "Search by Tag..." %>
-                <a class="searchButton"><%= submit_tag "Search Tags", class:"btn btn-success" %><% end %></a>
+                <!%= submit_tag "Update", id: "Update", class:"btn btn-danger", style:"margin-left:1065px;"  %>
+                <% end %>
+                <div class="add-a-book">
+                
+                <% if user_signed_in? %>
+                    <a><%= submit_tag "Search for tags", class:"justify-content-start btn btn-success"%>
+                    <a id="add-a-book" class="justify-content-end btn btn-primary" href='/book/new'>Add a Book</a>
+                <% end %>
+            </div>
 
                 
             </div>

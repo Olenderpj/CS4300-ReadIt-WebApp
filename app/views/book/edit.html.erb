@@ -9,12 +9,12 @@
     </head>
 
 
-
+    <div class="card" style="margin-top:125px; padding-bottom:50px;">
     <!--- Render content using the base index---->
     <% content_for :main_content do %>
         <form>
             <p>
-                <h1>Edit Book</h1>
+                <h1>Currently Editing: <%= @book.title %> </h1>
             
                 </body>
                         </form>
@@ -22,67 +22,74 @@
 
                                 <p>
                                     <label for = "title">Title&colon;</label> 
-                                    <%= b.text_field 'title', id: "title" %>
+                                    <%= b.text_field 'title', id: "title", class:"form-control", style:"width: 600%; margin-top: 12%" %>
                                 </p>
 
                                 <p>
                                     <label for = "author">Author&colon;</label>
-                                    <%= b.text_field 'author', id: "author" %>
+                                    <%= b.text_field 'author', id: "author", class:"form-control", style:"width: 600%; margin-top: 8%;" %>
                                 </p>
 
-                               <p>
+                               <p id: >
                                     <label for = "description">Description&colon;</label>
-                                    <%= b.text_field 'description', id: "description" %>
+                                    <%= b.text_field 'description', id: "description", class:"form-control", style:"width: 600%; margin-top: 8%;" %>
                                 </p>
 
                                <p>
                                     <label for = "genre">Genre&colon;</label>
-                                    <%= b.text_field 'genre', id: "genre" %>
+                                    <%= b.text_field 'genre', id: "genre", class:"form-control", style:"width: 600%; margin-top: 8%;" %>
                                 </p>
 
                                 <p>
                                     <label for = "tag_names">Add New Tags&colon;</label>
-                                    <%= b.text_field 'tag_names', id: "tags" %>
+                                    <%= b.text_field 'tag_names', id: "tags", class:"form-control", style:"width: 600%; margin-top: 8%;", placeholder:"Seperate tags with a space" %>
                                 </p>
 
                                <p>
                                     <label for = "totalPage">Total Page&colon;</label>
-                                    <%= b.number_field 'totalPage', id: "totalPage" %>
+                                    <%= b.number_field 'totalPage', id: "totalPage", class:"form-control", style:"width: 600%; margin-top: 8%;" %>
                                 </p>
 
                                <p>
                                     <label for = "readPage">Page Read&colon;</label>
-                                    <%= b.number_field 'readPage', id: "readPage" %>
+                                    <%= b.number_field 'readPage', id: "readPage", class:"form-control", style:"width: 600%; margin-top: 8%;" %>
                                 </p>
                                 
                                <p>
                                     <label for = "isRead">Already Read It</label>
-                                    <%= b.check_box 'isRead', id: "isRead" %>
+                                    <%= b.check_box 'isRead', id: "isRead", style:"width: 20%; margin-top: 8%;"%>
                                 </p>
 
                                <p>
                                     <label for = "isInReadingList">Is in Reading List</label>
-                                    <%= b.check_box 'isInReadingList', id: "isInReadingList" %>
+                                    <%= b.check_box 'isInReadingList', id: "isInReadingList", style:"width: 20%; margin-top: 8%;" %>
                                 </p>
 
                                <p>
                                     <label for = "isInPersonalLibraryList">Is in Personal Library List</label>
-                                    <%= b.check_box 'isInPersonalLibraryList', id: "isInPersonalLibraryList" %>
+                                    <%= b.check_box 'isInPersonalLibraryList', id: "isInPersonalLibraryList", style:"width: 20%; margin-top: 8%;" %>
                                 </p>
                                 <p>   
-                                    <label for = "comment_field">Comments</label>:
-                                    <%= text_field 'books', 'comment_field', id: "comment_field"  %>
+                                    <label for = "comment_field">Comments:</label>
+                                    <%= text_field 'books', 'comment_field', id: "comment_field", class:"form-control", style:"width: 600%; margin-top: 8%;" %>
                                 </p>
                         
                                 
 
-                                <%= submit_tag "Update", id: "Update" %>
+                                
                             <% end -%>
+                            <%= submit_tag "Update", id: "Update", class:"btn btn-danger", style:"margin-left:1065px;"  %>
                         </form>
                     </body>
-            <%= link_to 'Back to Home', :back, id: 'back-to-home' %>   
+            <div style="margin-top: 50px;">                    
+                <%= link_to 'Back to Home', :root, id: 'back-to-home', class: "btn btn-secondary"%>
+                <a href="/book/<%= @book[:id]%>" class="btn btn-primary">Read More</a>
+                
+                
+            </div>
             </p> 
         </form>
         <% end %>
         <%= render template: "base" %>
+        </div>
 </html>
