@@ -55,7 +55,7 @@ gem 'devise'
 gem "simple_calendar", "~> 2.4"
 
 # gem for postgres database
-#gem 'pg'
+gem 'pg'
 
 # autocpmlete
 gem 'jquery-ui-rails'
