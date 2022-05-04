@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2022_05_03_214419) do
     t.integer "birthMonth"
     t.integer "birthDay"
     t.integer "birthYear"
+    t.datetime "current_sign_in_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

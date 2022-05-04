@@ -13,7 +13,7 @@ class HomeController < ApplicationController
     gon.tagName = @avTags
     
 
-    if (params[:commit] == 'Filter')
+    if (params[:commit] == 'Sort')
       case params[:option_id]
       when '1'
         @books = @books.order(:author) 
@@ -21,6 +21,10 @@ class HomeController < ApplicationController
       when '2'
         @books = @books.order(:genre) 
         session[:option_id] = '2'
+
+      when '3'
+        @books = @books.order(:created_at) 
+        session[:option_id] = '3'
       end
     end
   end
@@ -89,6 +93,62 @@ class HomeController < ApplicationController
       #@counts = Book.count
       filter_books_by_user_id
     end
+    render 'home/index'
+  end
+
+  def alread
+    filter_books_by_user_id
+    @bookList = @books
+    #@bookList = Book.all
+    @books = []
+
+    @bookList.each do |t|
+      if t[:isRead]
+        @books<<t
+      end
+      
+    end
+
+    if @books.empty?
+      flash.alert = "No books to show!"
+    end
+    
+    @avTags = []
+    Tag.all.each do |t|
+      @avTags<<t[:name]
+    end
+    gon.tagName = @avTags
+    @counts = @books.length
+
+    render 'home/index'
+    #render 'book/listview'
+  end
+
+  def willread
+    filter_books_by_user_id
+    @bookList = @books
+    #@bookList = Book.all
+    @books = []
+
+    @bookList.each do |t|
+      if t[:isInReadingList]
+        @books<<t
+      end
+    end
+
+    if @books.empty?
+      flash.alert = "No books in reading list!"
+    end
+    
+    @avTags = []
+    Tag.all.each do |t|
+      @avTags<<t[:name]
+    end
+    gon.tagName = @avTags
+
+    @counts = @books.length
+    
+    #render 'book/listview'
     render 'home/index'
   end
 

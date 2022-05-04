@@ -15,7 +15,11 @@ Given('the following books exist:') do |table|
     Book.create!(:title => book['title'],
     :user => @user,
       :author => book['author'],
-      :genre => book['genre'])
+      :genre => book['genre'],
+      :tag_names => book['tag_names'],
+      :description => book['description'],
+      :totalPage => book['totalPage'],
+      :created_at => book['created_at'])
   end
 end
 
@@ -28,7 +32,7 @@ When('I select the option author') do
   select 'Author', from: 'option_id' # Code here that turns the phrase above into concrete actions
   #select 'Filter', from: 'commit'
   
-  click_on 'commit'
+  click_on 'Sort'
 end
 
 Then('I should see the following books author order: Dan Brown, Dan Brown, Dan Brown, Frank Herbert, Isaac Asimov') do 
@@ -48,12 +52,27 @@ end
 When('I select the option genre') do
   select 'Genre', from: 'option_id' # Code here that turns the phrase above into concrete actions
   #select 'Filter', from: 'commit'
-  click_on 'commit'
+  click_on 'Sort'
 end
 
 Then('I should see the following books genre order: Science Fiction, Science Fiction, Thriller, Thriller, Thriller') do
   genre = page.all(:css,'.card-genre').map(&:text)
   testarray = ['Science Fiction', 'Science Fiction', 'Thriller', 'Thriller', 'Thriller']
+  genre.each_with_index do |value, index|
+    value.should == testarray[index]
+  end
+   # Code here that turns the phrase above into concrete actions
+end
+
+When('I select the option oldest-newest') do
+  select 'Oldest-Newest', from: 'option_id' # Code here that turns the phrase above into concrete actions
+  #select 'Filter', from: 'commit'
+  click_on 'Sort'
+end
+
+Then('I should see the following books order: Angels & Demons, Dune, Foundation, The Lost Symbol, The Da Vinci Code') do
+  genre = page.all(:css,'.card-titles').map(&:text)
+  testarray = ['Angels & Demons', 'Dune', 'Foundation', 'The Lost Symbol', 'The Da Vinci Code']
   genre.each_with_index do |value, index|
     value.should == testarray[index]
   end
