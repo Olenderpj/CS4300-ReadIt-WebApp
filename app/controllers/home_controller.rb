@@ -120,8 +120,8 @@ class HomeController < ApplicationController
     gon.tagName = @avTags
     @counts = @books.length
 
-    #render 'home/index'
-    render 'book/listview'
+    render 'home/index'
+    #render 'book/listview'
   end
 
   def willread
@@ -148,14 +148,13 @@ class HomeController < ApplicationController
 
     @counts = @books.length
     
-    render 'book/listview'
-    #render 'home/index'
+    #render 'book/listview'
+    render 'home/index'
   end
 
   def filter_books_by_user_id
     #@books = Book.all
     #@counts = @Books.count
-    puts(user_signed_in?)
     if user_signed_in?
       puts("DEBUG: in HomeController index user is signed in. Current_user.id=" + current_user.id.to_s())
       @books = Book.filter_by_user_id(current_user.id)
