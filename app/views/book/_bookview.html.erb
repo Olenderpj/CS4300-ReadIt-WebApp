@@ -29,7 +29,7 @@
                         
                         <p class="card-author"><%= @books[count][:author] %></p>
                         <p class="card-description"><%= @books[count][:description][0, 150] %>...</p>
-
+                        <p class="card-comment"><%= @books[count][:comment_field] %></p>
                         <% if @books[count][:isInReadingList] %>
                             <%= image_tag("icons/ToReadListIcon.jpg", height: '25px') %>
                         <% end %>
