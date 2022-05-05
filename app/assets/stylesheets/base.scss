@@ -43,6 +43,7 @@ hr{
     height: 65px;
     width: 100%;
     background: #2F3033;
+    box-shadow: 0 4px 8px -4px #000;
 
 }
 
@@ -51,7 +52,13 @@ hr{
     padding-top: 50px;
     margin-top: 50px;
     margin-left:5px;
+    
 }
+
+.Logo:hover{
+    cursor: pointer;
+}
+
 .menu-search{
     margin-left: 5px;
     margin-bottom: 5px;
@@ -68,6 +75,7 @@ hr{
     background: #2F3033;
     color:#2F3033;
     transition: all 0.3s;
+    box-shadow: 0 4px 4px #000;
     
     .sidebar-header{
         margin-top: 10px;
@@ -97,13 +105,20 @@ hr{
 }
 
 .search-button{
+    margin-top:8px;
     margin-left: 10px;
     margin-right: 17%;
+}
+
+.search-button:hover{
+    color: #FFF;
+    transform: scale(1.05);
 }
 
 
 
 #search{
+    margin-top:8px;
     max-width:450px;
 }
 

@@ -17,7 +17,7 @@
                 <% break %>
                 <% end %>
                 <td>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" style="width: 18rem; margin-left:10px; margin-top:10px">
                     <% if not @books[count][:image].nil? %>
                         <img src="<%= @books[count][:image] %>"class="card-img-top" alt="... No image to display ..." width="300" height="350">
                     <% else %>
@@ -40,7 +40,7 @@
                             <%= image_tag("icons/LibraryIcon.png", height: '25px') %>
                         <% end %>
 
-                        <p class="card-tags"><strong>Tags:</strong><%= @books[count].tags.map(&:name).join(', ') %></p>
+                        <p class="card-tags"><strong>Tags:&nbsp;&nbsp;</strong><%= @books[count].tags.map(&:name).join(', ') %></p>
                         
                         <% if user_signed_in? %>
                             <p class="text-right"><b>Progress: <%= @books[count][:readPage].to_s+" / "+@books[count][:totalPage].to_s %></b></p>
@@ -56,10 +56,18 @@
                             <p>Total Pages: <%= @books[count][:totalPage]%></p>
                         <% end %>
 
-                        <a href="/book/<%= @books[count][:id]%>" class="btn btn-primary">Read More</a>
-                        
                         <% if user_signed_in? %>
-                            <a href="/book/<%= @books[count][:id] %>/edit" class="btn btn-primary", id="edit-book">Edit Book</a>
+                            <div style="margin-bottom:12px;">
+                                <a href="/book/<%= @books[count][:id]%>" class="btn btn-primary" style="margin-right:10px;">Read More</a>
+                                <a href="/book/<%= @books[count][:id] %>/edit" class="btn btn-primary", id="edit-book">Edit Book</a>
+                            </div>
+                        <% else %>
+                            <a href="/book/<%= @books[count][:id]%>" class="btn btn-primary" style="margin-right:5px;">Read More</a>
+                        <% end %>
+
+
+                        <% if user_signed_in? %>
+                            
                         <% end %>
 
                         <a href=<%= "https://www.amazon.com/s?k=" + @books[count][:title].gsub(" ", "+") %> class="btn btn-warning">Buy on Amazon</a>
