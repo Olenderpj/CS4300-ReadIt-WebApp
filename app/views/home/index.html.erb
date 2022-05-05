@@ -13,26 +13,28 @@
         <% content_for :main_content do %>
 
         
-
-        <div class="tagSearchHeader">
-            
-            
-            
-            <div class="Search">
-                <a class="searchPath"><%= form_tag home_search_path(), method: :get do %></a>
-                <a class="searchPathForm"><%= text_field "searchtag", params[:search], class: "form-control", id: "tags", placeholder: "Search by Tag..." %>
-                <!%= submit_tag "Update", id: "Update", class:"btn btn-danger", style:"margin-left:1065px;"  %>
-                <% end %>
-                <div class="add-a-book">
+            <div class="tagSearchHeader">
                 
-                <% if user_signed_in? %>
-                    <a><%= submit_tag "Search for tags", class:"justify-content-start btn btn-success"%>
-                    <a id="add-a-book" class="justify-content-end btn btn-primary" href='/book/new'>Add a Book</a>
-                <% end %>
-            </div>
-
                 
-            </div>
+                
+                <div class="Search" style="margin-bottom: 20px;">
+                    <a class="searchPath"><%= form_tag home_search_path(), method: :get do %></a>
+                    <a class="searchPathForm"><%= text_field "searchtag", params[:search], class: "form-control", id: "tags", placeholder: "Search by Tag...", style:"width:250px; margin-left:-250px; margin-right: 15px;" %></a>
+                    <% end %>
+                    
+                    
+                    <div class="add-a-book">      
+                        <a><%= submit_tag "Search for tags", class:"justify-content-start btn btn-success"%></a>
+                        <% if user_signed_in? %>
+                            <a id="add-a-book" class="justify-content-end btn btn-primary" href='/book/new' style="margin-left: 928px;">Add a Book</a>
+                        <% end %>
+                    </div>
+                    
+                
+
+                    
+                </div>
+
 
         </div>
 
@@ -40,7 +42,7 @@
             <%= label_tag(:q, "Sort By:") %>
             <%= select_tag "option_id", options_for_select([["Author",1], ["Genre",2],["Oldest-Newest",3]]) %>
 
-            <%= submit_tag("Sort") %>
+            <%= submit_tag("Sort", class:"btn btn-secondary", style:"margin-left: 15px; margin-bottom: 10px;") %>
           <% end %>
             
         <%= render 'book/bookview' %> 
