@@ -2,9 +2,10 @@
 <html>
   <head>
     <%= include_gon %>;
-    <title>ReadIt</title>
+    <title>Read It!</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag('/public/favicon.ico') %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
