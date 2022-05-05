@@ -20,3 +20,81 @@
 .GenreInfo{
     margin-left: 56px;
 }
+
+.Image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    max-width: 300px;
+    max-height: 700px;
+}
+
+.EditBook{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    max-width: 300px;
+    max-height: 700px;
+    margin-top: 25px;
+}
+
+.HomeButton{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 300px;
+    max-height: 700px;
+    margin-top: 25px;
+    margin-bottom: 75px;
+
+}
+
+$PrimaryButtonColor: #4ebaad;
+$WarningButtonColor: #f59c00;
+$SuccessButtonColor: #a6c714;
+
+.btn-primary {
+    color: #FFF;
+    background-color: $PrimaryButtonColor;
+    border-color: $PrimaryButtonColor; 
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+    color:#000;
+    background-color:$PrimaryButtonColor;
+    border-color:$PrimaryButtonColor;
+    transform: scale(1.025);
+}
+
+.btn-warning {
+    color: #000;
+    background-color: $WarningButtonColor;
+    border-color: $WarningButtonColor; 
+}
+
+.btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .open .dropdown-toggle.btn-warning {
+    color:#FFF;
+    background-color:$WarningButtonColor;
+    border-color:$WarningButtonColor;
+    transform: scale(1.025);
+}
+
+.btn-success {
+    color: #000;
+    background-color: $SuccessButtonColor;
+    border-color: $SuccessButtonColor; 
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open .dropdown-toggle.btn-success {
+    color:#FFF;
+    background-color:$SuccessButtonColor;
+    border-color:$SuccessButtonColor;
+    transform: scale(1.025);
+}
+
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary.active, .open .dropdown-toggle.btn-secondary {
+    transform: scale(1.025);
+}

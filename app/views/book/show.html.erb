@@ -9,14 +9,25 @@
         <div class="header">
         
           <div class="Title">
+
             <h2><%= @book[:title]%></h2>
             <a href=<%= "https://www.amazon.com/s?k=" + @book[:title].gsub(" ", "+") + "&i=stripbooks"%> class="btn btn-warning">Buy on Amazon</a>
           </div>
             
           </h2>       
           <hr>
-          
+
+        <div class="Image">
+            <img src="<%= @book[:image] %>"class="card-img-top" alt="... No image to display ...">
+            <% if user_signed_in? %>
+                <a href="/book/<%= @book[:id] %>/edit" class="btn btn-primary EditBook", id="edit-book">Edit Book</a>
+            <% end %>
+        </div>
+
+
+                  
           <% if user_signed_in? %>
+          
             <p><b> Progress: </b></p>
             <div class="progress">
                 <% progress_value = (!(@book[:totalPage]==0))? '%.2f' % (((@book[:readPage].to_f)/(@book[:totalPage].to_f))*100.0 ): 0 %>
@@ -41,10 +52,17 @@
                 <p class="BookInfo"><%= +@book[:description] %></p>
             </div>
             
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-backspace-reverse-fill" viewBox="0 0 16 16">
+            <% if user_signed_in? %>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-backspace-reverse-fill" viewBox="0 0 16 16">
                     <path d="M0 3a2 2 0 0 1 2-2h7.08a2 2 0 0 1 1.519.698l4.843 5.651a1 1 0 0 1 0 1.302L10.6 14.3a2 2 0 0 1-1.52.7H2a2 2 0 0 1-2-2V3zm9.854 2.854a.5.5 0 0 0-.708-.708L7 7.293 4.854 5.146a.5.5 0 1 0-.708.708L6.293 8l-2.147 2.146a.5.5 0 0 0 .708.708L7 8.707l2.146 2.147a.5.5 0 0 0 .708-.708L7.707 8l2.147-2.146z"/>
-                  </svg><strong><i>Remove Tags:</i></strong></p>
+                  </svg><strong><i>Tags:</i></strong></p>
                   <div class="Tag"><%= render @book.tags %></div>
+
+            <% end %>
+            
+
+            <a class="btn btn-secondary HomeButton" href='/'>Home </a>
+            
 
         </div>
     </div>
