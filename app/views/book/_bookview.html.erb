@@ -31,13 +31,13 @@
                         <p class="card-description"><%= @books[count][:description][0, 150] %>...</p>
                         <p class="card-comment"><%= @books[count][:comment_field] %></p>
                         <% if @books[count][:isInReadingList] %>
-                            <%= image_tag("icons/ToReadListIcon.jpg", height: '25px') %>
+                            <%= image_tag("icons/ToReadListIcon.png", height: '40px', style:"margin-right:55px;") %>
                         <% end %>
                         <% if @books[count][:isRead] %>
-                            <%= image_tag("icons/BookReadIcon2.jpg", height: '30px') %>
+                            <%= image_tag("icons/BookReadIcon2.png", height: '40px', style:"margin-right:55px;") %>
                         <% end %>
                         <% if @books[count][:isInPersonalLibraryList] %>
-                            <%= image_tag("icons/LibraryIcon.png", height: '25px') %>
+                            <%= image_tag("icons/LibraryIcon.png", height: '40px') %>
                         <% end %>
 
                         <p class="card-tags"><strong>Tags:&nbsp;&nbsp;</strong><%= @books[count].tags.map(&:name).join(', ') %></p>

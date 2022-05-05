@@ -6,87 +6,88 @@
         <%= stylesheet_link_tag 'books'%>
     </head>
 
+    <div class="card" style="margin-top:125px; padding-bottom:50px;">
+        <!--- Render content using the base index---->
+        <% content_for :main_content do %>
 
-    <!--- Render content using the base index---->
-    <% content_for :main_content do %>
-
-            <h2>New Book</h2>
-                <%= form_tag :action => 'create' do %>
-                    
-                    <p>
-                        <label for = "title">Title</label> 
-                        <%= text_field 'books', 'title', id: "title" %>
-
-                    </p>
-
-
-
-                    <p>
-                        <label for = "author">Author&colon;</label> 
-                        <%= text_field 'books', 'author', id: "author" %>
-
-                    </p>
-
-
-
-                    <p>
-                        <label for = "description">Description&colon;</label>
-                        <%= text_field 'books', 'description', id: "description" %>
-                    </p>
-
-                    <p>
-                        <label for = "genre">Genre&colon;</label>
-                        <%= text_field 'books', 'genre', id: "genre" %>
-                    </p>
-                    
-                    
-                    <p>
-                    <label for = "totalPage">Total Page&colon;</label>
-                    <%= number_field 'books', 'totalPage', id:"toatalPage", value:0 %>
-                    </p>
-
-                    <p>
-                    <label for = "readPage">Page Read&colon;</label>
-                    <%= number_field 'books', 'readPage', id:"readPage", value:0 %>
-                    </p>
-                    
-
-                    <p>
-                        <label for = "tag_names">Tags&colon;</label>
-                        <%= text_field 'books', 'tag_names', id: "tags"  %>
-                    </p>
-
-                    <p>
-                        <label for = "isRead">Already Read It</label>
-                        <%= check_box 'books', 'isRead', id: "isRead" %>
-                    </p>
-
-                    <p>
-                        <label for = "isInReadingList">Is in Reading List</label>
-                        <%= check_box 'books', 'isInReadingList', id: "isInReadingList" %>
-                    </p>
-
-                    <p>
-                    <label for = "isInPersonalLibraryList">Is in Personal Library List</label>
-                    <%= check_box 'books', 'isInPersonalLibraryList', id: "isInPersonalLibraryList" %>
-                    </p>
-                    <p>
-                        <label for = "comment_field">Comments</label>:
-                        <%= text_field 'books', 'comment_field', id: "comment_field"  %>
-                    </p>
+                <h2>Add a new book to your personal library</h2>
+                    <%= form_tag :action => 'create' do %>
                         
-                    <p>
-                        <label for = "image">image</label> 
-                        <%= text_field 'books', 'image', id: "image" %>
+                        <p>
+                            <label for = "title">Title</label> 
+                            <%= text_field 'books', 'title', id: "title", class:"form-control", style:"width: 600%; margin-top: 8%;" %>
 
-                    </p>
+                        </p>
+
+
+
+                        <p>
+                            <label for = "author">Author&colon;</label> 
+                            <%= text_field 'books', 'author', id: "author", class:"form-control", style:"width: 600%; margin-top: 8%;" %>
+
+                        </p>
+
+
+
+                        <p>
+                            <label for = "description">Description&colon;</label>
+                            <%= text_field 'books', 'description', id: "description", class:"form-control", style:"width: 600%; margin-top: 8%;" %>
+                        </p>
+
+                        <p>
+                            <label for = "genre">Genre&colon;</label>
+                            <%= text_field 'books', 'genre', id: "genre", class:"form-control", style:"width: 600%; margin-top: 8%;" %>
+                        </p>
+                        
+                        
+                        <p>
+                        <label for = "readPage">Pages Read&colon;</label>
+                        <%= number_field 'books', 'readPage', id:"readPage", value:0, class:"form-control", style:"width: 600%; margin-top: 8%;" %>
+                        </p>
+
+                        <p>
+                        <label for = "totalPage">Total Pages&colon;</label>
+                        <%= number_field 'books', 'totalPage', id:"toatalPage", value:0, class:"form-control", style:"width: 600%; margin-top: 8%;" %>
+                        </p>
+                        
+
+                        <p>
+                            <label for = "tag_names">Tags&colon;</label>
+                            <%= text_field 'books', 'tag_names', id: "tags", class:"form-control", style:"width: 600%; margin-top: 8%;", placeholder:"Enter tags seperated by a space..."%>
+                        </p>
+
+                        <p>
+                            <label for = "isRead">Already Read It</label>
+                            <%= check_box 'books', 'isRead', id: "isRead", style:"width: 20%; margin-top: 8%;" %>
+                        </p>
+
+                        <p>
+                            <label for = "isInReadingList">Is in Reading List</label>
+                            <%= check_box 'books', 'isInReadingList', checked: true, id: "isInReadingList", style:"width: 20%; margin-top: 8%;" %>
+                        </p>
+
+                        <p>
+                        <label for = "isInPersonalLibraryList">Is in Personal Library List</label>
+                        <%= check_box 'books', 'isInPersonalLibraryList', id: "isInPersonalLibraryList", style:"width: 20%; margin-top: 8%;" %>
+                        </p>
+                        <p>
+                            <label for = "comment_field">Comments:</label>
+                            <%= text_field 'books', 'comment_field', id: "comment_field", class:"form-control", style:"width: 600%; margin-top: 8%;"  %>
+                        </p>
+                            
+                        <p>
+                            <label for = "image">Image Address:</label> 
+                            <%= text_field 'books', 'image', id: "image", class:"form-control", style:"width: 600%; margin-top: 8%;", placeholder:"Enter the URL of an image here" %>
+
+                        </p>
+            
+            <%= submit_tag "Create", id: "Create", class:"btn btn-success", style:"margin-top:10px;" %>
+                        
+        <% end -%>
+        <%= link_to 'Back to Home', :back, id: 'back-to-home', class:"btn btn-secondary", style:"margin-top:10px;" %>  
         
-        <%= submit_tag "Create", id: "Create" %>
-                    
-    <% end -%>
-    <%= link_to 'Back to Home', :back, id: 'back-to-home' %>  
-       
-    
-    <% end %>
-    <%= render template: "base" %>
+        
+        <% end %>
+        <%= render template: "base" %>
+    </div>
 </html>   
