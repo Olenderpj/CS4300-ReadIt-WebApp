@@ -17,9 +17,8 @@
               
                 <% meetings.each do |meeting| %>
                   <div> 
-                    <a href =  > <%= meeting.name %></a>
+                    <%= meeting.name %>
                     <%= link_to 'Show', meeting %>
-                    <%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                   </div>
                 <% end %>
               <% end %>

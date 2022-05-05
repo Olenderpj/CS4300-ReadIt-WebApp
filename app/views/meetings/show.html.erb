@@ -11,6 +11,7 @@
   </p>
 
   <%= link_to 'Edit', edit_meeting_path(@meeting) %> |
+  <%= link_to 'Destroy', @meeting, method: :delete, data: { confirm: 'Are you sure?' }%> |
   <%= link_to 'Back', '/calendar' %>
 <% end %>
 <%= render template: "base" %>
