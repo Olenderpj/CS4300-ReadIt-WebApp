@@ -32,16 +32,16 @@
             </div>
             
         <hr>
+        
             <ul class="reading-menu">
                 <h5>Main Menu</h5>
-                <% if user_signed_in? %>
-                <li>User: <%= @current_user.email %></li>
-                <% end %> 
+                
+                
                 <li><a href=""> Discover</a></li>
                 <li><a href=""> Reading Challenges </a></li>
             </ul>
         <hr>
-            <% if user_signed_in? %>
+        <% if user_signed_in? %>
                 <ul class="sub-menu">
                 <h5>Calendar</h5>
                     <li><a href="/calendar"> View Calendar</a></li>
@@ -66,6 +66,9 @@
         <ul class="account-menu">
             <h5>Account</h5>
             <% if user_signed_in? %>
+                <% if current_page?(root_path) %>
+                    <li>User: <%= @current_user.email %></li>
+                <% end %>
                 <li><a href="/users/edit">Account Settings</a></li>
                 <li><a href="/users/sign_out"> Logout</a></li>
                 <% else %>
