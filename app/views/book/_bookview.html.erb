@@ -30,12 +30,15 @@
                         <p class="card-author"><%= @books[count][:author] %></p>
                         <p class="card-description"><%= @books[count][:description][0, 150] %>...</p>
                         <p class="card-comment"><%= @books[count][:comment_field] %></p>
-                        <% if @books[count][:isInReadingList] %>
+                        
+                        <% if @books[count][:isInReadingList] %> 
                             <%= image_tag("icons/ToReadListIcon.png", height: '40px', style:"margin-right:55px;") %>
                         <% end %>
+
                         <% if @books[count][:isRead] %>
                             <%= image_tag("icons/BookReadIcon2.png", height: '40px', style:"margin-right:55px;") %>
                         <% end %>
+
                         <% if @books[count][:isInPersonalLibraryList] %>
                             <%= image_tag("icons/LibraryIcon.png", height: '40px') %>
                         <% end %>
@@ -46,10 +49,14 @@
                             <p class="text-right"><b>Progress: <%= @books[count][:readPage].to_s+" / "+@books[count][:totalPage].to_s %></b></p>
                             <p>
                             <% progress_value = (!(@books[count][:totalPage]==0))? '%.2f' % (((@books[count][:readPage].to_f)/(@books[count][:totalPage].to_f))*100.0 ): 0 %>
+                            
+                            
                             <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" 
-                            style="<%= "width:"+progress_value.to_s+"%" %>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= progress_value %></div>
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" 
+                                style="text-shadow: 1px 1px #000;<%= "width:"+progress_value.to_s+"%" %>" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= progress_value %>&nbsp;&#37;
+                                </div>
                             </div>
+                            
                             </p>
 
                         <% else %>
