@@ -8,6 +8,7 @@
     </head>
 
     <body>
+    
         <div>
             <!--- Render base content that every page should have ---->
             <nav class="sticky-top" id="top-bar">
@@ -29,10 +30,17 @@
             <div class="sidebar-header">
                 <h3><a href="/" style="color:#CCAD00;"> Read-It Personal Bookshelf</a></h3>
             </div>
+         <hr>
+            <% if user_signed_in? %>
+                <ul class="sub-menu">
+                <h5>User:</h5>
+                    <%= @current_user.email %>
+                </ul>
+            <% end %> 
         <hr>
             <ul class="reading-menu">
                 <h3>Main Menu</h3>
-                
+
                 <li><a href=""> Discover</a></li>
                 <li><a href=""> Reading Challenges </a></li>
             </ul>
