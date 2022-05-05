@@ -40,7 +40,7 @@
                             <%= image_tag("icons/LibraryIcon.png", height: '25px') %>
                         <% end %>
 
-                        <p class="card-tags"><%= "Tags: " + @books[count].tags.map(&:name).join(', ') %></p>
+                        <p class="card-tags"><strong>Tags:</strong><%= @books[count].tags.map(&:name).join(', ') %></p>
                         
                         <% if user_signed_in? %>
                             <p class="text-right"><b>Progress: <%= @books[count][:readPage].to_s+" / "+@books[count][:totalPage].to_s %></b></p>
