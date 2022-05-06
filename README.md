@@ -9,7 +9,7 @@ Features:
 - And MORE!
 
 ***
-###Currently Heroku Deployment:\
+Currently Heroku Deployment:\
 https://cs4300-readit.herokuapp.com/
 
 ***
