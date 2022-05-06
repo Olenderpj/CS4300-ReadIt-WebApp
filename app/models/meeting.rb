@@ -1,3 +1,3 @@
 class Meeting < ApplicationRecord
-    
+   
 end

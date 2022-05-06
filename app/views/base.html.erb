@@ -8,6 +8,7 @@
     </head>
 
     <body>
+    
         <div>
             <!--- Render base content that every page should have ---->
             <nav class="sticky-top" id="top-bar">
@@ -30,6 +31,7 @@
                 
                 <a href="/" class="Logo"><%= image_tag("icons/Read_It_Logo_1.png", width: '270px') %></a>
             </div>
+
         
             <ul class="reading-menu light-text">
                 <h3 style="margin-top: 30px;">Main Menu</h3>
@@ -38,8 +40,10 @@
                 <li><a href=""> Reading Challenges </a></li>
             </ul>
         <hr>
+
             <% if user_signed_in? %>
                 <ul class="sub-menu light-text">
+
                 <h5>Calendar</h5>
                     <li><a href="/calendar"> View Calendar</a></li>
                     <li><a href="/meetings/new"> Create Event</a></li>
@@ -57,6 +61,9 @@
         <ul class="account-menu light-text">
             <h5>Account</h5>
             <% if user_signed_in? %>
+                <% if current_page?(root_path) %>
+                    <li>User: <%= @current_user.email %></li>
+                <% end %>
                 <li><a href="/users/edit">Account Settings</a></li>
                 <li><a href="/users/sign_out"> Logout</a></li>
                 <% else %>
